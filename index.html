@@ -22,6 +22,9 @@ canvas{position:fixed;left:0;top:0}
 #rcp{left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px))}#rcq{right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));flex-direction:column;gap:8px;align-items:flex-end}#rct2{top:calc(10px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);margin-top:80px}
 .rcsmode .fl{display:none}.rcsmode #rcp{display:block}.rcsmode #rcq{display:flex}.rcsmode #rct2{display:block}
 #edv{position:absolute;left:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;pointer-events:auto}#edv div{display:flex;gap:6px}#edpan{width:300px;touch-action:manipulation}
+#evp,#evq{display:none;position:fixed;z-index:6}#evp{left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px))}#evq{right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));flex-direction:column;gap:8px;align-items:flex-end}
+.evamode .fl{display:none}.evamode #evp{display:block}.evamode #evq{display:flex}
+#rfbar{display:none;position:absolute;left:10px;bottom:calc(112px + env(safe-area-inset-bottom,0px));gap:8px;pointer-events:auto}
 #ed{position:fixed;inset:0;z-index:6;pointer-events:none}
 #pal{position:absolute;right:calc(8px + env(safe-area-inset-right,0px));top:calc(8px + env(safe-area-inset-top,0px));bottom:8px;width:300px;display:grid;grid-template-columns:1fr 1fr;gap:5px;align-content:start;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;pointer-events:auto;touch-action:pan-y;padding-bottom:30px}
 #pal .b{text-align:left;padding:9px 8px;font-size:12px;min-width:0;touch-action:pan-y}
@@ -31,15 +34,18 @@ canvas{position:fixed;left:0;top:0}
 <div class="g fl" id=L><div id=thr><div id=thf></div><div id=thl>0%</div></div><div style="display:flex;flex-direction:column;gap:8px"><button class=b id=mx>全開</button><button class=b id=mn>停止</button></div></div>
 <div class="g fl" id=sas><button class=b data-m=0>手動</button><button class=b data-m=1>安定</button><button class=b data-m=2>順行</button><button class=b data-m=3>逆行</button><button class=b data-m=4>垂直</button></div>
 <div class="g fl" id=R><button class="b big" data-k=L>⟲</button><button class="b big" data-k=R>⟳</button><button class="b big" id=stg style="width:112px;background:#8b2323;font-size:16px">分離<br>STAGE</button></div>
-<div class="g fl" id=tr><button class=b id=bm>🗺</button><button class=b id=zo>－</button><button class=b id=zi>＋</button><button class=b data-w=1>×1</button><button class=b data-w=10>×10</button><button class=b data-w=100>×100</button><button class=b data-w=1000>×1k</button><button class=b data-w=10000>×10k</button><button class=b data-w=100000>×100k</button><button class=b data-w=1000000>×1M</button><button class=b id=fc>◎</button><button class=b id=vmb>🛰</button><button class=b id=rcb>RCS</button><button class=b id=rs>🔧組立</button></div>
+<div class="g fl" id=tr><button class=b id=bm>🗺</button><button class=b id=zo>－</button><button class=b id=zi>＋</button><button class=b data-w=1>×1</button><button class=b data-w=10>×10</button><button class=b data-w=100>×100</button><button class=b data-w=1000>×1k</button><button class=b data-w=10000>×10k</button><button class=b data-w=100000>×100k</button><button class=b data-w=1000000>×1M</button><button class=b id=fc>◎</button><button class=b id=vmb>🛰</button><button class=b id=rcb>RCS</button><button class=b id=rfb>🔧改造</button><button class=b id=drb>⛏</button><button class=b id=armb>🦾</button><button class=b id=evb0>🧑‍🚀EVA</button><button class=b id=bs1>🏗補給</button><button class=b id=bs2>🏗預入</button><button class=b id=rs>🔧組立</button></div>
 <div id=rcp><div style="display:grid;grid-template-columns:repeat(3,76px);gap:8px"><span></span><button class="b big2" data-r=ru>▲</button><span></span><button class="b big2" data-r=rl>◀</button><button class="b big2" id=rct>RCS<br>ON</button><button class="b big2" data-r=rr>▶</button><span></span><button class="b big2" data-r=rd>▼</button><span></span></div></div>
 <div id=rcq><div style="display:flex;gap:4px"><button class=b data-w=1>×1</button><button class=b data-w=10>×10</button><button class=b data-w=100>×100</button><button class=b data-w=1000>×1k</button><button class=b data-w=10000>×10k</button></div><div style="display:flex;gap:8px"><button class="b big2" data-k=L>⟲</button><button class="b big2" data-k=R>⟳</button></div><button class=b id=und>🔓 ドッキング解除</button><div style="display:flex;gap:6px"><button class=b id=sy1>速度同期</button><button class=b id=sy2>ランデブー自動接近</button></div><div style="display:flex;gap:6px"><button class=b id=fx0>燃料均等化</button><button class=b id=fx1>燃料を集める</button><button class=b id=fx2>燃料を渡す</button></div><button class=b id=rcx>⬅ 戻る</button></div>
 <div id=rct2><select id=tgtsel class=b></select></div>
+<div id=evp><div style="display:grid;grid-template-columns:repeat(3,72px);gap:8px"><span></span><button class="b big2" data-r=ru>▲</button><span></span><button class="b big2" data-r=rl data-k=L>◀</button><button class="b big2" data-r=rd>▼</button><button class="b big2" data-r=rr data-k=R>▶</button></div></div>
+<div id=evq><button class=b id=evbd>🚪 乗り込む</button><button class=b id=evvm>🛰 機体切替</button><div style="display:flex;gap:6px"><button class=b id=evzi>＋</button><button class=b id=evzo>－</button><button class=b id=evmap>🗺</button></div></div>
+<div id=evm style="display:none;position:fixed;inset:0;z-index:30;background:#000c;align-items:center;justify-content:center"><div id=evmi style="background:#0b1424;border:1px solid var(--bd);border-radius:14px;padding:14px;width:min(520px,92vw);max-height:80vh;overflow:auto;touch-action:pan-y"></div></div>
 <div id=ts></div>
 <div id=vm style="display:none;position:fixed;inset:0;z-index:30;background:#000c;align-items:center;justify-content:center"><div id=vmi style="background:#0b1424;border:1px solid var(--bd);border-radius:14px;padding:14px;width:min(600px,94vw);max-height:84vh;overflow:auto;touch-action:pan-y"></div></div>
 <div id=cw style="display:none;position:fixed;inset:0;z-index:30;background:#000c;align-items:center;justify-content:center"><div id=cwi style="background:#0b1424;border:1px solid var(--bd);border-radius:14px;padding:14px;width:min(560px,92vw);max-height:84vh;overflow:auto;touch-action:pan-y"></div></div>
 <div id=io style="display:none;position:fixed;inset:0;z-index:30;background:#000c;align-items:center;justify-content:center"><div style="background:#0b1424;border:1px solid var(--bd);border-radius:14px;padding:14px;width:min(620px,92vw)"><div id=iot style="margin-bottom:8px"></div><textarea id=ita style="width:100%;height:170px;box-sizing:border-box;background:#05070d;color:#cfe;border:1px solid var(--bd);border-radius:8px;font:12px monospace;-webkit-user-select:text;user-select:text"></textarea><div style="display:flex;gap:8px;margin-top:8px"><button class=b id=iok></button><button class=b id=icl>閉じる</button></div></div></div>
-<div id=ed><div id=edv><div><button class=b id=ezi>＋</button><button class=b id=ezo>－</button><button class=b id=eh>⌂</button><button class=b id=el>◀</button><button class=b id=eu>▲</button><button class=b id=ed2>▼</button><button class=b id=er>▶</button></div><input type=range id=edpan min=-40 max=40 step=.1 value=0></div><div id=inf></div><div id=pal></div></div>
+<div id=ed><div id=edv><div><button class=b id=ezi>＋</button><button class=b id=ezo>－</button><button class=b id=eh>⌂</button><button class=b id=el>◀</button><button class=b id=eu>▲</button><button class=b id=ed2>▼</button><button class=b id=er>▶</button></div><input type=range id=edpan min=-40 max=40 step=.1 value=0></div><div id=inf></div><div id=rfbar><button class=b id=rfok>✅ 改造を確定</button><button class=b id=rfx>✖ 取消</button></div><div id=pal></div></div>
 <script>
 const G0=9.81,HI=2;
 const B=[{n:'太陽',R:2.6e8,mu:1.1723e18,col:'#ffd24a'},
@@ -100,14 +106,22 @@ rwheelL:{n:'大型ローバー車輪',w:2,h:2,m:400,wheel:7000,ws:10,k:'abr',js:
 rcab:{n:'ローバーキャビン(2人)',w:2.2,h:1.3,m:700,tq:6e4,mp:15,seats:2,k:'abr',cx:.6},rchas:{n:'ローバーシャシー',w:3.2,h:.4,m:300,k:'abr',js:2e6,cx:.5},
 rwheelS:{n:'小型車輪',w:.8,h:.8,m:60,wheel:2000,ws:18,k:'abr',js:2e5,cx:.4},rtrack:{n:'クローラー(キャタピラ)',w:3,h:.9,m:500,wheel:9000,ws:7,k:'abr',js:6e5,cx:.6},
 rbox:{n:'貨物コンテナ',w:2,h:1.5,m:400,k:'abr',js:8e5},rarm:{n:'ロボットアーム',w:.4,h:2,m:120,k:'r',js:1e5,cx:.5},rdrill:{n:'ドリル(科学)',w:.5,h:1.6,m:150,sci:1,k:'abr',js:2e5},
-rsci:{n:'科学観測機器',w:.8,h:.8,m:80,sci:1,k:'abr',js:1e5},rlight:{n:'ライト',w:.4,h:.4,m:10,k:'abr',js:5e4},rsolar:{n:'小型ソーラー',w:1.8,h:.15,m:40,k:'abr',js:8e4}};
-const CATS={'ポッド/居住':['pod','pod2','hab','hab2','lab','cupola'],'タンク':['tank0','tank','tankL','tankWs','tankW','tankX','mtank','mtankL'],'エンジン':['e4','e3','e2','e1','e5','e0','e6','e7','srb','lb'],
- '構造/補強':['dec','rdec','ring','ringW','gusset','strutb','truss','adapt'],'制御':['wh','rcs','rcs4'],'着陸/探査/空力':['leg','legL','chute','shield','fin','nose'],'ローバー':['rcab','rchas','rwheelS','rwheel','rwheelL','rtrack','rbox','rarm','rdrill','rsci','rlight','rsolar'],'ステーション':['dport','dportL','node','solar','solarL','antenna']};
+rsci:{n:'科学観測機器',w:.8,h:.8,m:80,sci:1,k:'abr',js:1e5},rlight:{n:'ライト',w:.4,h:.4,m:10,k:'abr',js:5e4},rsolar:{n:'小型ソーラー',w:1.8,h:.15,m:40,k:'abr',js:8e4},
+battery:{n:'バッテリー',w:.8,h:.8,m:60,ec:1000,k:'abr',js:2e5},bbatt:{n:'大型バッテリー',w:2,h:1.5,m:400,ec:8000,k:'abr',js:1e6},
+bsolar:{n:'ソーラーファーム(基地用)',w:6,h:.3,m:300,sol:25,k:'abr',js:6e5,cx:1},oretank:{n:'鉱石タンク',w:1.5,h:1.5,m:200,orecap:3000,k:'abr'},
+isru:{n:'燃料精製機(ISRU)',w:1.5,h:2,m:800,isru:1,orecap:300,k:'abr',js:5e5},bdrill:{n:'大型採掘機',w:1.5,h:2.5,m:900,drill:2.5,k:'abr',js:6e5},
+bcore:{n:'基地コア(6人)',w:4,h:3,m:8000,tq:3e5,mp:300,seats:6,ec:3000,orecap:1000,k:'abr'},bfuel:{n:'基地燃料タンク 80t',w:4,h:3.5,m:3000,f:80000,k:'abr'},
+bpad:{n:'基地プレート(土台)',w:8,h:.5,m:1200,js:8e6,k:'abr'},rarmL:{n:'大型ロボットアーム',w:.6,h:4,m:400,arm:1,reach:14,cap:30000,k:'r',js:4e5},
+eva:{n:'船外活動クルー',w:.5,h:.9,m:90,seats:1,eva:1,tq:900,mp:6,rf:250,rcs4:1,wheel:900,ws:3.5,k:'abr',hide:1,js:1e9}};
+const CATS={'ポッド/居住':['pod','pod2','hab','hab2','lab','cupola'],'タンク':['tank0','tank','tankL','tankWs','tankW','tankX','mtank','mtankL','bfuel'],'エンジン':['e4','e3','e2','e1','e5','e0','e6','e7','srb','lb'],
+ '構造/補強':['dec','rdec','ring','ringW','gusset','strutb','truss','adapt'],'制御':['wh','rcs','rcs4'],'着陸/探査/空力':['leg','legL','chute','shield','fin','nose'],'ローバー':['rcab','rchas','rwheelS','rwheel','rwheelL','rtrack','rbox','rarm','rdrill','rsci','rlight','rsolar'],'ステーション':['dport','dportL','node','antenna','rarmL'],'基地/電力':['battery','bbatt','solar','solarL','bsolar','oretank','isru','bdrill','bcore','bpad']};
 for(const c in CATS)CATS[c].forEach(k=>P[k].cat=c);
+[['pod',300],['pod2',600],['hab',800],['hab2',1500],['lab',400],['rcab',300]].forEach(([k,v])=>P[k].ec=v);P.solar.sol=1;P.solarL.sol=4;P.rsolar.sol=.6;P.rdrill.drill=.4;P.rarm.arm=1;P.rarm.reach=8;P.rarm.cap=6000;
 P.rdec.js=1e6;P.leg.js=3e5;P.fin.js=1.5e5;P.chute.js=4e6;P.nose.js=1e5;P.e4.js=4e5;P.shield.js=1.2e6;
-const COL={rcab:'#dfe6f5',rchas:'#778',rwheelS:'#444',rtrack:'#333',rbox:'#c8a96a',rarm:'#bbb',rdrill:'#999',rsci:'#9c9',rlight:'#ffd',rsolar:'#2a4fa8',ring:'#9ab',ringW:'#9ab',gusset:'#9ab',strutb:'#aab',truss:'#bcd',adapt:'#dde',tankWs:'#f4f4f4',e6:'#99a',e7:'#9b9',hab2:'#e7ecf7',lab:'#dfeee7',cupola:'#cfe0ff',node:'#c8d0e0',dportL:'#778',rcs4:'#bbb',antenna:'#ccc',solarL:'#2a4fa8',mtankL:'#cfe',legL:'#999',rwheelL:'#444',rcs:'#bbb',mtank:'#cfe',dport:'#778',hab:'#e7ecf7',solar:'#2a4fa8',rwheel:'#444',pod2:'#dfe6f5',srb:'#e8e8e8',lb:'#d9e0f0',chute:'#e94',shield:'#654',nose:'#e9e9f1',e4:'#99a',e5:'#99a',pod:'#e9e9f1',e1:'#99a',e0:'#99a',e2:'#99a',e3:'#aab',dec:'#e83',rdec:'#e83',leg:'#999',fin:'#c55',wh:'#6a8'};
+const COL={battery:'#e8c040',bbatt:'#e8c040',bsolar:'#2a4fa8',oretank:'#a88',isru:'#9ab',bdrill:'#999',bcore:'#e7ecf7',bfuel:'#f4f4f4',bpad:'#889',rarmL:'#bbb',eva:'#eee',rcab:'#dfe6f5',rchas:'#778',rwheelS:'#444',rtrack:'#333',rbox:'#c8a96a',rarm:'#bbb',rdrill:'#999',rsci:'#9c9',rlight:'#ffd',rsolar:'#2a4fa8',ring:'#9ab',ringW:'#9ab',gusset:'#9ab',strutb:'#aab',truss:'#bcd',adapt:'#dde',tankWs:'#f4f4f4',e6:'#99a',e7:'#9b9',hab2:'#e7ecf7',lab:'#dfeee7',cupola:'#cfe0ff',node:'#c8d0e0',dportL:'#778',rcs4:'#bbb',antenna:'#ccc',solarL:'#2a4fa8',mtankL:'#cfe',legL:'#999',rwheelL:'#444',rcs:'#bbb',mtank:'#cfe',dport:'#778',hab:'#e7ecf7',solar:'#2a4fa8',rwheel:'#444',pod2:'#dfe6f5',srb:'#e8e8e8',lb:'#d9e0f0',chute:'#e94',shield:'#654',nose:'#e9e9f1',e4:'#99a',e5:'#99a',pod:'#e9e9f1',e1:'#99a',e0:'#99a',e2:'#99a',e3:'#aab',dec:'#e83',rdec:'#e83',leg:'#999',fin:'#c55',wh:'#6a8'};
 const $=id=>document.getElementById(id),cv=$('c'),ctx=cv.getContext('2d');
-let edZ=1,edX=0,edY=0,epts=new Map(),epd=0,emid=null,lastP=[0,0];
+let refitTarget=null,refitPool=null,refitIds=null,edBackup=null;
+let strutFrom=null,strutTo=[0,0],edZ=1,edX=0,edY=0,epts=new Map(),epd=0,emid=null,lastP=[0,0];
 let W,Hh,DPR,S,ED=[],uid=0,tool='tank',mir=1,key={L:0,R:0},warp=1,map=0,zf=[3,1],menu=1,PR=null,ghost=null,lastSc=1,mp=[0,0],mf=-1,DB=[],FX=[],VS=[],ACT=null,CLK=0,nameSeq=1,tgt=null,rcsMode=0,vmArm=-1;
 const STARS=Array.from({length:120},()=>[Math.random(),Math.random()]);
 function rsz(){DPR=Math.min(devicePixelRatio||1,2);W=innerWidth;Hh=innerHeight;cv.width=W*DPR;cv.height=Hh*DPR;cv.style.width=W+'px';cv.style.height=Hh+'px'}
@@ -122,24 +136,24 @@ function act(A,k){A.forEach(p=>{if(p.st==k&&(P[p.t].T||P[p.t].chute))p.on=1});co
 function gm(V){let m=0,cx=0,cy=0,I=0,tq=0;for(const p of V){const pm=P[p.t].m+(p.fuel||0);m+=pm;cx+=pm*p.x;cy+=pm*p.y;tq+=P[p.t].tq||0}cx/=m;cy/=m;for(const p of V){const pm=P[p.t].m+(p.fuel||0);I+=pm*((p.x-cx)**2+(p.y-cy)**2+(p.w*p.w+p.h*p.h)/12)}return{m,cx,cy,I,tq}}
 function cpts(V){const o=[];V.forEach(p=>{o.push([p.x-p.w/2,p.y-p.h/2],[p.x+p.w/2,p.y-p.h/2]);if(P[p.t].leg){const lg=P[p.t].lg;o.push([p.x+(p.x>=0?1:-1)*lg[0],p.y-p.h/2-lg[1]])}});return o}
 const lowH=(V,g)=>g.cy-Math.min(...cpts(V).map(q=>q[1]));
-const TF=[[3,.9,1],[7,.8,2],[19,.45,3],[53,.28,4],[151,.12,5],[331,.05,6],[757,.02,7]];
+const TF=[[3,.9,1],[7,.8,2],[19,.45,3],[53,.28,4],[151,.12,5],[331,.05,6],[757,.02,7],[1531,.012,8],[3797,.006,9],[9311,.003,10],[23117,.0016,11],[61001,.0009,12]];
 function terr(i,la){const b=B[i];if(!b.tr)return 0;let h=120;for(const[f,a,p]of TF)h+=a*900*b.tr*Math.sin(f*la+p*1.7+i*2.3);
  if(i===HI){const d=Math.abs(Math.atan2(Math.sin(la-Math.PI/2),Math.cos(la-Math.PI/2)))*b.R,k=cl((d-1500)/2500,0,1),sm=k*k*(3-2*k);h=h*sm+6*(1-sm)}return h}
 const gnd=(i,la)=>{const h=terr(i,la);return B[i].sea?Math.max(0,h):h};
 function place(s,t){const bi=s.land-1,Bd=B[bi],f=s.la-Bd.w*t,u=[Math.cos(f),Math.sin(f)],h=lowH(s.V,gm(s.V)),bc=bp(bi,t),bw=bv(bi,t),rr=Bd.R+gnd(bi,s.la)+h;
  s.x=bc[0]+rr*u[0];s.y=bc[1]+rr*u[1];s.vx=bw[0]+Bd.w*rr*u[1];s.vy=bw[1]-Bd.w*rr*u[0];s.th=f;s.w=-Bd.w}
 // ---------- 物理
-function step(dt){const s=S,V=s.V,t=s.t,g=gm(V),m=g.m,cx=g.cx,cy=g.cy,pp=pri(s.x,s.y,s.vx,s.vy,t),Bp=B[pp.i],al=Math.hypot(pp.x,pp.y)-Bp.R,at=Bp.atm&&al<Bp.atm.top?Bp.atm:null,pr=at?Math.min(1,Math.exp(-al/at.H)*at.rho0/1.225):0;let F=0,tq=0;
+function step(dt){const s=S,V=s.V,t=s.t,g=gm(V),m=g.m,cx=g.cx,cy=g.cy,pp=pri(s.x,s.y,s.vx,s.vy,t),Bp=B[pp.i],al=Math.hypot(pp.x,pp.y)-Bp.R,at=Bp.atm&&al<Bp.atm.top?Bp.atm:null,pr=at?Math.min(1,Math.exp(-al/at.H)*at.rho0/1.225):0;let F=0,tq=0;powerStep(s,V,dt);
  for(const p of V){const d=P[p.t];p.fl=0;p.fT=0;p.fx=0;p.fy=0;p.rx=0;p.ry=0;if(!d.T||!p.on||(!d.solid&&s.thr<=0))continue;const tk=d.self?(p.fuel>0?[p]:[]):V.filter(q=>q.sec==p.sec&&q.fuel>0&&!P[q.t].self);let av=0;tk.forEach(q=>av+=q.fuel);if(av<=0)continue;
   const isp=d.v-(d.v-d.a)*pr;let f=(d.solid?1:s.thr)*d.T,dm=f/(isp*G0)*dt;if(dm>av){f*=av/dm;dm=av}let rem=dm;for(const q of tk){const u=Math.min(q.fuel,rem);q.fuel-=u;rem-=u;if(rem<=0)break}
   F+=f;tq+=(p.x-cx)*f;p.fl=f/d.T;p.fT=f}
- let rfx=0,rfy=0;if(s.rcs&&s===ACT){let mpT=0;for(const p of V)mpT+=p.mp||0;const rk=(key.L?1:0)-(key.R?1:0);
+ let rfx=0,rfy=0;if(s.rcs&&s===ACT&&!s.land){let mpT=0;for(const p of V)mpT+=p.mp||0;const rk=(key.L?1:0)-(key.R?1:0);
   for(const p of V){const d=P[p.t];if(!(d.rcs||d.rcs4)||mpT<=0)continue;let fx=0,fy=0;
    for(const dr of d.rcs4?[0,1,2,3]:[p.dir||0]){const u=DV[dr],tz=(p.x-cx)*u[1]-(p.y-cy)*u[0];
-    if((key.ru&&dr==0)||(key.rd&&dr==1)||(key.rl&&dr==2)||(key.rr&&dr==3)||(rk&&tz*rk>.05)){fx+=u[0]*RF;fy+=u[1]*RF;const dm=RF/(240*G0)*dt;mpT-=dm;drainMp(V,dm)}}
+    if((key.ru&&dr==0)||(key.rd&&dr==1)||(key.rl&&dr==2)||(key.rr&&dr==3)||(rk&&tz*rk>.05)){const rf=d.rf||RF;fx+=u[0]*rf;fy+=u[1]*rf;const dm=rf/(240*G0)*dt;mpT-=dm;drainMp(V,dm)}}
    if(fx||fy){p.rx=fx;p.ry=fy;p.fx=fx;p.fy=fy;p.fl=1;rfx+=fx;rfy+=fy;tq+=(p.x-cx)*fy-(p.y-cy)*fx}}}
  let ey=[Math.cos(s.th),Math.sin(s.th)],ex=[ey[1],-ey[0]];
- if(s.land){const bi=s.land-1,f=s.la-B[bi].w*t,u=[Math.cos(f),Math.sin(f)];if(F*(ey[0]*u[0]+ey[1]*u[1])/m>B[bi].mu/B[bi].R**2)s.land=0;else{const tw=V.reduce((a,p)=>a+(P[p.t].wheel||0),0);if(tw){const dk=s===ACT?(key.R?1:0)-(key.L?1:0):0,am=Math.min(3,tw/m),vm=Math.max(...V.filter(p=>P[p.t].wheel).map(p=>P[p.t].ws||12));s.rv=s.rv||0;if(dk)s.rv=cl(s.rv+dk*am*dt,-vm,vm);else s.rv*=Math.max(0,1-1.5*dt);{const nl=s.la-s.rv/(B[bi].R+lowH(V,g))*dt;if(B[bi].sea&&terr(bi,nl)<0)s.rv=0;else s.la=nl}}s.gf=1;s.t+=dt;place(s,s.t);return}}
+ if(s.land){const bi=s.land-1,f=s.la-B[bi].w*t,u=[Math.cos(f),Math.sin(f)];if(F*(ey[0]*u[0]+ey[1]*u[1])/m>B[bi].mu/B[bi].R**2)s.land=0;else if(s.eva&&s===ACT&&key.ru){place(s,t);s.vx+=u[0]*3.2;s.vy+=u[1]*3.2;s.land=0}else{const tw=V.reduce((a,p)=>a+(P[p.t].wheel||0),0);if(tw){const dk=s===ACT?(key.R?1:0)-(key.L?1:0):0,am=Math.min(3,tw/m),vm=Math.max(...V.filter(p=>P[p.t].wheel).map(p=>P[p.t].ws||12));s.rv=s.rv||0;if(dk&&s.ecOk!==false){s.rv=cl(s.rv+dk*am*dt,-vm,vm);if(s.ec>0)s.ec=Math.max(0,s.ec-.8*dt)}else s.rv*=Math.max(0,1-1.5*dt);{const nl=s.la-s.rv/(B[bi].R+lowH(V,g))*dt;if(B[bi].sea&&terr(bi,nl)<0)s.rv=0;else s.la=nl}}s.gf=1;s.t+=dt;place(s,s.t);return}}
  let ax=F*ey[0]/m,ay=F*ey[1]/m,sv=[pp.vx,pp.vy];ax+=(rfx*ex[0]+rfy*ey[0])/m;ay+=(rfx*ex[1]+rfy*ey[1])/m;
  if(s.auto&&s===ACT){const o=tgt&&VS.includes(tgt)&&!tgt.dead&&tgt!==s?tgt:null;if(!o||s.land)s.auto=0;else{const ac=autoAcc(s,o);if(ac){let mpT=0,fT=0;for(const p of V){mpT+=p.mp||0;fT+=p.fuel||0}const a3=s.auto==3;if(a3?fT>0:mpT>0){ax+=ac[0];ay+=ac[1];if(a3)drainFuel(V,Math.hypot(ac[0],ac[1])*m/(320*G0)*dt);else drainMp(V,Math.hypot(ac[0],ac[1])*m/(240*G0)*dt)}else{s.auto=0;toast('燃料切れ(自動制御を終了)',1800)}}}}
  if(at){const w=Bp.w,vr=[pp.vx-w*pp.y,pp.vy+w*pp.x],rho=at.rho0*Math.exp(-al/at.H),vb=[vr[0]*ex[0]+vr[1]*ex[1],vr[0]*ey[0]+vr[1]*ey[1]],spd=Math.hypot(vr[0],vr[1]);let fx=0,fy=0;sv=vr;
@@ -147,11 +161,11 @@ function step(dt){const s=S,V=s.V,t=s.t,g=gm(V),m=g.m,cx=g.cx,cy=g.cy,pp=pri(s.x
   const phi=1.7e-4*Math.sqrt(rho)*spd**3,sh=V.some(p=>p.t=='shield')&&(ey[0]*vr[0]+ey[1]*vr[1])<-.6*spd,lim=sh?6e6:4e5;s.hd=Math.max(0,(s.hd||0)+(phi/lim>.6?(phi/lim-.6)*.12:-.03)*dt);
   if(s.hd>1){s.dead=1;toast('🔥 空力加熱で機体が焼失した<br>再突入は耐熱シールドを進行方向(下)に向けて',0)}
   ax+=(fx*ex[0]+fy*ey[0])/m;ay+=(fx*ex[1]+fy*ey[1])/m}
- s.gf=Math.hypot(ax,ay)/G0;if(dt<=.1){const am=g.tq*(s.pb||1)/g.I,k=s===ACT&&!s.rcs?(key.L?1:0)-(key.R?1:0):0;let a=0;
+ s.gf=Math.hypot(ax,ay)/G0;if(dt<=.1){const am=s.ecOk===false?0:g.tq*(s.pb||1)/g.I,k=s===ACT&&!s.rcs?(key.L?1:0)-(key.R?1:0):0;let a=0;
   if(k){a=k*Math.min(am,.8);s.hold=s.th}else if(s===ACT&&s.rcs&&(key.L||key.R)){s.hold=s.th}else if(s.mode&&am>0){const v=Math.hypot(sv[0],sv[1]),r=Math.hypot(pp.x,pp.y);let tx=pp.x/r,ty=pp.y/r;
    if(s.mode==1){tx=Math.cos(s.hold);ty=Math.sin(s.hold)}else if((s.mode==2||s.mode==3)&&v>2){const q=s.mode==2?1:-1;tx=q*sv[0]/v;ty=q*sv[1]/v}
    let er=Math.atan2(ty,tx)-s.th;er=Math.atan2(Math.sin(er),Math.cos(er));const wd=Math.sign(er)*Math.min(1,Math.sqrt(1.6*am*Math.abs(er)));a=cl(3*(wd-s.w),-am,am)}
-  s.w+=(a+tq/g.I)*dt;s.th+=s.w*dt;const br=stress(V,g,a+tq/g.I,s.w,dt);if(br){breakLink(br[0],br[1],g);return}}
+  if(a&&s.ec>0)s.ec=Math.max(0,s.ec-.15*dt);s.w+=(a+tq/g.I)*dt;s.th+=s.w*dt;const br=stress(V,g,a+tq/g.I,s.w,dt);if(br){breakLink(br[0],br[1],g);return}}
  let a=acc(s.x,s.y,t);s.vx+=(ax+a[0])*dt/2;s.vy+=(ay+a[1])*dt/2;s.x+=s.vx*dt;s.y+=s.vy*dt;a=acc(s.x,s.y,t+dt);s.vx+=(ax+a[0])*dt/2;s.vy+=(ay+a[1])*dt/2;s.t+=dt;s.td=a[2];
  ey=[Math.cos(s.th),Math.sin(s.th)];ex=[ey[1],-ey[0]];
  const q=pri(s.x,s.y,s.vx,s.vy,s.t),bi=q.i,Bd=B[bi],d=Math.hypot(q.x,q.y);if(d-Bd.R>2600)return;
@@ -175,12 +189,12 @@ function rail(o,t0,h){const q=pri(o.x,o.y,o.vx,o.vy,t0),Bq=B[q.i],mu=Bq.mu,r=Mat
  let M=(M0+n*h)%(2*Math.PI),E=M;for(let i=0;i<40;i++){const d=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));E-=d;if(Math.abs(d)<1e-13)break}
  const nu=2*Math.atan2(Math.sqrt(1+e)*Math.sin(E/2),Math.sqrt(1-e)*Math.cos(E/2)),rr=a*(1-e*Math.cos(E)),ang=om+sg*nu,vp0=-Math.sqrt(mu*a)/rr*Math.sin(E),vp1=sg*Math.sqrt(mu*a*(1-e*e))/rr*Math.cos(E),c=Math.cos(om),sn=Math.sin(om),P1=pos(t0+h);
  o.x=P1.p[q.i][0]+rr*Math.cos(ang);o.y=P1.p[q.i][1]+rr*Math.sin(ang);o.vx=P1.v[q.i][0]+vp0*c-vp1*sn;o.vy=P1.v[q.i][1]+vp0*sn+vp1*c;return true}
-function stepInactive(v,t0,h){const a0=ACT;if(h>.3&&!v.land&&rail(v,t0,h)){v.t=t0+h;v.th+=v.w*h;return}
+function stepInactive(v,t0,h){const a0=ACT;if(v.land){v.t=t0;S=v;step(h);S=a0;return}if(h>.3&&!v.land&&rail(v,t0,h)){v.t=t0+h;v.th+=v.w*h;return}
  let rem=h,cnt=0;while(rem>1e-6&&cnt<40){const dd=Math.min(rem,h<=.3?h:Math.max(.02,Math.min(3000,.01*(v.td||1e3))));v.t=t0+(h-rem);S=v;step(dd);S=a0;rem-=dd;cnt++}}
 function rectOf(v,g,ex,ey,p){return{c:wp(v,g,ex,ey,p),ex,ey,hw:p.w/2,hh:p.h/2}}
 function sat(A,B2){let best=null;for(const u of[A.ex,A.ey,B2.ex,B2.ey]){const d=[B2.c[0]-A.c[0],B2.c[1]-A.c[1]],pr=r=>r.hw*Math.abs(r.ex[0]*u[0]+r.ex[1]*u[1])+r.hh*Math.abs(r.ey[0]*u[0]+r.ey[1]*u[1]),dd=d[0]*u[0]+d[1]*u[1],ov=pr(A)+pr(B2)-Math.abs(dd);if(ov<=0)return null;if(!best||ov<best.pen){const sg=dd<0?-1:1;best={pen:ov,n:[u[0]*sg,u[1]*sg]}}}return best}
 function collideVessels(){const L=VS.filter(v=>!v.dead);if(L.length<2)return;const G=L.map(v=>{const g=gm(v.V),ey=[Math.cos(v.th),Math.sin(v.th)],ex=[ey[1],-ey[0]];let rad=0;for(const p of v.V)rad=Math.max(rad,Math.hypot(p.x-g.cx,p.y-g.cy)+Math.hypot(p.w,p.h)/2);return{v,g,ex,ey,rad}});
- for(let i=0;i<G.length;i++)for(let j=i+1;j<G.length;j++){const a=G[i],b=G[j],A=a.v,Bv=b.v;if(Math.hypot(A.x-Bv.x,A.y-Bv.y)>a.rad+b.rad||A.t<(A.cg||0)||Bv.t<(Bv.cg||0))continue;let hit=null;
+ for(let i=0;i<G.length;i++)for(let j=i+1;j<G.length;j++){const a=G[i],b=G[j],A=a.v,Bv=b.v;if(Math.hypot(A.x-Bv.x,A.y-Bv.y)>a.rad+b.rad||A.eva||Bv.eva||A.t<(A.cg||0)||Bv.t<(Bv.cg||0))continue;let hit=null;
   for(const pa of A.V){const ra=rectOf(A,a.g,a.ex,a.ey,pa);for(const pb of Bv.V){if(P[pa.t].dock&&P[pb.t].dock)continue;const rb=rectOf(Bv,b.g,b.ex,b.ey,pb);if(Math.hypot(ra.c[0]-rb.c[0],ra.c[1]-rb.c[1])>Math.hypot(pa.w,pa.h)/2+Math.hypot(pb.w,pb.h)/2)continue;const r=sat(ra,rb);if(r&&(!hit||r.pen>hit.pen))hit={...r,pa,pb,cp:[(ra.c[0]+rb.c[0])/2,(ra.c[1]+rb.c[1])/2]}}}
   if(hit)resolve(a,b,hit)}}
 function resolve(a,b,h){const A=a.v,Bv=b.v,n=h.n,ima=A.land?0:1/a.g.m,imb=Bv.land?0:1/b.g.m,iia=A.land?0:1/a.g.I,iib=Bv.land?0:1/b.g.I;
@@ -206,11 +220,11 @@ function dockInfo(s,o){const g=gm(s.V),ey=[Math.cos(s.th),Math.sin(s.th)],ex=[ey
 function tryDock(){const s=ACT;if(!s||s.dead||menu)return;for(const o of VS){if(o===s||o.dead||(!!o.land)!==(!!s.land)||Math.max(s.nd||0,o.nd||0)>CLK||Math.hypot(o.x-s.x,o.y-s.y)>150)continue;const i=dockInfo(s,o);if(i.best&&i.best.d<1.3&&i.rel<1.5&&i.align<30&&i.closing>.03){dockMerge(s,o,i.best);return}}}
 function dockMerge(s,o,bs){const g=gm(s.V),go=gm(o.V),a=bs.a,pt=bs.b,fa=DV[a.dir||0],fb=DV[pt.dir||0],rt=v=>[-v[1],v[0]];let k=0,v=fb;while(!(v[0]===-fa[0]&&v[1]===-fa[1])&&k<4){v=rt(v);k++}
  const vert=fa[1]!==0,ga=(vert?a.h:a.w)/2,gb=vert?(k%2?pt.w:pt.h)/2:(k%2?pt.h:pt.w)/2,cx=a.x+fa[0]*(ga+gb),cy=a.y+fa[1]*(ga+gb),idm={};o.V.forEach(q=>idm[q.id]=++NID);
- const add_=o.V.map(q=>{let rx=q.x-pt.x,ry=q.y-pt.y,w=q.w,h=q.h,dr=q.dir||0;for(let i=0;i<k;i++){[rx,ry]=[-ry,rx];[w,h]=[h,w];dr=ROT[dr]}return{...q,id:idm[q.id],x:cx+rx,y:cy+ry,w,h,dir:dr,l:q.l.map(i=>idm[i]).filter(Boolean),sec:-1}});
+ const add_=o.V.map(q=>{let rx=q.x-pt.x,ry=q.y-pt.y,w=q.w,h=q.h,dr=q.dir||0;for(let i=0;i<k;i++){[rx,ry]=[-ry,rx];[w,h]=[h,w];dr=ROT[dr]}return{...q,id:idm[q.id],x:cx+rx,y:cy+ry,w,h,dir:dr,l:q.l.map(i=>idm[i]).filter(Boolean),stv:(q.stv||[]).map(i=>idm[i]).filter(Boolean),sec:-1}});
  const nb_=add_.find(q=>q.id===idm[pt.id]);a.l.push(nb_.id);nb_.l.push(a.id);a.dk=nb_.id;nb_.dk=a.id;
  const M=g.m+go.m,vx=(g.m*s.vx+go.m*o.vx)/M,vy=(g.m*s.vy+go.m*o.vy)/M,w=(g.I*s.w+go.I*o.w)/(g.I+go.I);
  s.V=s.V.concat(add_);secs(s.V);rebase(g,gm(s.V));s.vx=vx;s.vy=vy;s.w=w;if(s.land){const bi=s.land-1,bc=bp(bi,s.t);s.la=Math.atan2(s.y-bc[1],s.x-bc[0])+B[bi].w*s.t;s.rv=0}VS=VS.filter(z=>z!==o);tgt=null;initCrew(s);fillTgt();saveWorld();toast('🔗 ドッキング成功!',2500)}
-function undock(){const s=ACT;if(!s)return;const a=s.V.find(p=>p.dk),M=nb(s.V),b=a&&M[a.dk];if(!a||!b){toast('ドッキング中のポートがありません',1800);return}
+function undock(onlyArm){const s=ACT;if(!s)return;const a=s.V.find(p=>p.dk&&(!onlyArm||P[p.t].arm)),M=nb(s.V),b=a&&M[a.dk];if(!a||!b){toast('ドッキング中のポートがありません',1800);return}
  const g0=gm(s.V),la=a.l,lb=b.l;a.l=la.filter(i=>i!==b.id);b.l=lb.filter(i=>i!==a.id);const root=s.V.find(p=>P[p.t].seats),keep=new Set([root]),q=[root];
  while(q.length){const x=q.pop();for(const i of x.l){const n=M[i];if(n&&!keep.has(n)){keep.add(n);q.push(n)}}}const rem=s.V.filter(p=>!keep.has(p));
  if(!rem.some(p=>P[p.t].seats)){a.l=la;b.l=lb;toast('分離側にポッド/居住モジュールが必要です',2200);return}
@@ -234,13 +248,73 @@ function autoAcc(s,o){const rvx=o.vx-s.vx,rvy=o.vy-s.vy;let dvx=rvx,dvy=rvy;
 function warpNear(){const s=ACT,o=tgt;if(!o||!VS.includes(o)){toast('ターゲットを選んでください',1500);return}const i=dockInfo(s,o),g=gm(s.V);
  if(i.best){const b=i.best,fa0=DV[b.a.dir||0];s.th=Math.PI/2+Math.atan2(-b.fb[1],-b.fb[0])-Math.atan2(fa0[1],fa0[0]);const ey=[Math.cos(s.th),Math.sin(s.th)],ex=[ey[1],-ey[0]],pa=wp(s,g,ex,ey,b.a);s.x+=b.pb[0]+b.fb[0]*40-pa[0];s.y+=b.pb[1]+b.fb[1]*40-pa[1]}else{s.x=o.x+40;s.y=o.y}
  s.vx=o.vx;s.vy=o.vy;s.w=0;toast('ターゲットの40m手前に同期しました',2000)}
+function sunF(s){const p=pos(s.t).p,dx=-s.x,dy=-s.y,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d;for(let i=1;i<B.length;i++){const rx=p[i][0]-s.x,ry=p[i][1]-s.y,tt=rx*ux+ry*uy;if(tt<=0||tt>d)continue;if(Math.abs(rx*uy-ry*ux)<B[i].R*.999)return 0}return Math.min(3,(B[HI].a/d)**2)}
+function powerStep(s,V,dt){let cap=0,gen=0,orecap=0,dr=0,nd=0,isru=0,seats=0,lights=0;for(const p of V){const d=P[p.t];cap+=d.ec||0;gen+=d.sol||0;orecap+=d.orecap||0;if(d.drill){dr+=d.drill;nd++}if(d.isru)isru++;if(d.seats)seats++;if(p.t=='rlight')lights++}
+ if(s.ec===undefined)s.ec=cap;s.ecCap=cap;const sf=sunF(s);s.sun=sf;s.ecOk=cap===0||s.ec>.01;let use=seats*.02+lights*.1;
+ if(s.drill&&s.land&&dr>0&&s.ecOk&&orecap>0){s.ore=Math.min(orecap,(s.ore||0)+dr*dt);use+=nd}
+ if(isru&&(s.ore||0)>0&&s.ecOk){const tk=V.filter(p=>P[p.t].f&&!P[p.t].self&&p.fuel<P[p.t].f);let room=0;tk.forEach(p=>room+=P[p.t].f-p.fuel);const amt=Math.min(1.5*isru*dt,s.ore,room);if(amt>0){s.ore-=amt;tk.forEach(p=>p.fuel+=amt*(P[p.t].f-p.fuel)/room);use+=2*isru}}
+ s.ore=Math.min(s.ore||0,orecap);s.ec=cl(s.ec+(gen*sf-use)*dt,0,cap)}
+function grab(){const s=ACT;if(!s||s.dead)return;const g=gm(s.V),ey=[Math.cos(s.th),Math.sin(s.th)],ex=[ey[1],-ey[0]];let best=null;
+ for(const a of s.V){const d=P[a.t];if(!d.arm||a.dk)continue;const pa=wp(s,g,ex,ey,a);for(const o of VS){if(o===s||o.dead||o.eva||(!!o.land)!==(!!s.land))continue;const go=gm(o.V);if(go.m>d.cap)continue;const eyo=[Math.cos(o.th),Math.sin(o.th)],exo=[eyo[1],-eyo[0]];
+  for(const q of o.V){const pq=wp(o,go,exo,eyo,q),dd=Math.hypot(pq[0]-pa[0],pq[1]-pa[1])-Math.hypot(q.w,q.h)/2;if(dd<d.reach&&(!best||dd<best.d))best={a,o,q,d:dd,go,exo,eyo}}}}
+ if(!best){toast('アームの届く範囲に持ち上げられる機体がありません(距離/質量)',2200);return}
+ if(Math.hypot(best.o.vx-s.vx,best.o.vy-s.vy)>2){toast('相対速度が大きすぎます',1800);return}grabMerge(s,g,ex,ey,best)}
+function grabMerge(s,g,ex,ey,b){const o=b.o,go=b.go,k=((Math.round((o.th-s.th)/(Math.PI/2))%4)+4)%4,idm={};o.V.forEach(q=>idm[q.id]=++NID);
+ const add_=o.V.map(q=>{const w=wp(o,go,b.exo,b.eyo,q),dx=w[0]-s.x,dy=w[1]-s.y;let ww=q.w,hh=q.h,dr=q.dir||0;for(let i=0;i<k;i++){[ww,hh]=[hh,ww];dr=ROT[dr]}
+  return{...q,id:idm[q.id],x:g.cx+dx*ex[0]+dy*ex[1],y:g.cy+dx*ey[0]+dy*ey[1],w:ww,h:hh,dir:dr,l:q.l.map(i=>idm[i]).filter(Boolean),stv:(q.stv||[]).map(i=>idm[i]).filter(Boolean),sec:-1}});
+ const nq=add_.find(z=>z.id===idm[b.q.id]),a=b.a;a.l.push(nq.id);nq.l.push(a.id);a.dk=nq.id;nq.dk=a.id;const M=g.m+go.m,vx=(g.m*s.vx+go.m*o.vx)/M,vy=(g.m*s.vy+go.m*o.vy)/M;
+ s.V=s.V.concat(add_);secs(s.V);rebase(g,gm(s.V));s.vx=vx;s.vy=vy;if(s.land){const bi=s.land-1,bc=bp(bi,s.t);s.la=Math.atan2(s.y-bc[1],s.x-bc[0])+B[bi].w*s.t;s.rv=0}
+ VS=VS.filter(z=>z!==o);initCrew(s);if(o.ore)s.ore=(s.ore||0)+o.ore;saveWorld();toast('🦾 '+o.name+' をつかみました (もう一度押すと放します)',2500)}
+function doEva(id){const s=ACT;if(!s||s.dead||s.eva)return;const pod=s.V.find(p=>(p.crew||[]).includes(id)),c=CREW.find(z=>z.id==id);if(!pod||!c)return;pod.crew=pod.crew.filter(x=>x!==id);
+ const g=gm(s.V),ey=[Math.cos(s.th),Math.sin(s.th)],ex=[ey[1],-ey[0]],w=wp(s,g,ex,ey,pod),off=P[pod.t].w/2+1.2;
+ const part={id:++NID,t:'eva',x:0,y:0,w:.5,h:.9,st:1,l:[],crew:[id],fuel:0,mp:6,on:0,dir:0,dk:0,u:c.n,stv:[]};
+ const v={V:[part],name:c.n,x:w[0]+ex[0]*off,y:w[1]+ex[1]*off,vx:s.vx+ex[0]*.5,vy:s.vy+ex[1]*.5,th:s.th,w:0,thr:0,land:s.land,la:s.land?s.la-off/B[s.land-1].R:0,t:s.t,t0:s.t,stg:0,mode:1,hold:s.th,dead:0,bt:0,oo:{},cs:[],pb:1,eb:1,sci:1,rcs:1,joy:0,eva:1,cg:s.t+2};
+ secs(v.V);initCrew(s);initCrew(v);VS.push(v);switchTo(v);toast('🧑‍🚀 '+c.n+' が船外へ。▲ジャンプ/ジェットパック ◀▶移動',3000)}
+function boardEva(){const e=ACT;if(!e||!e.eva)return;let best=null,bd=1e9;for(const v of VS){if(v===e||v.dead||v.eva)continue;const gv=gm(v.V),ey=[Math.cos(v.th),Math.sin(v.th)],ex=[ey[1],-ey[0]];
+  for(const p of v.V){if(!P[p.t].seats||(p.crew||[]).length>=P[p.t].seats)continue;const w=wp(v,gv,ex,ey,p),d=Math.hypot(w[0]-e.x,w[1]-e.y);if(d<bd){bd=d;best={v,p}}}}
+ if(!best||bd>7){toast('7m以内に空席のある機体(ポッド/居住モジュール)がありません',2200);return}
+ best.p.crew=(best.p.crew||[]).concat(e.V[0].crew);VS=VS.filter(z=>z!==e);initCrew(best.v);switchTo(best.v);toast('🚪 乗り込みました',1500)}
+function evUI(){const s=ACT;if(!s||s.dead){toast('操縦する機体がありません',1500);return}if(s.eva){boardEva();return}const cr=[];s.V.forEach(p=>(p.crew||[]).forEach(id=>{const c=CREW.find(z=>z.id==id);if(c&&!c.dead)cr.push(c)}));
+ if(!cr.length){toast('乗員がいません(組立画面の👨‍🚀クルーで乗せる)',2000);return}
+ const h=['<div style="font-weight:700;margin-bottom:6px">🧑‍🚀 船外活動(EVA): 誰が出ますか?</div>'];cr.forEach(c=>h.push(`<div class=cr><canvas class=fc data-c="${c.id}" width=40 height=40></canvas><span><b>${c.n}</b><br><small>${c.job}</small></span><button class=b data-a=eva data-id=${c.id}>船外へ</button></div>`));
+ h.push('<button class=b data-a=close style="margin-top:8px">閉じる</button>');$('evmi').innerHTML=h.join('');$('evmi').querySelectorAll('canvas.fc').forEach(cn=>{const c=CREW.find(z=>z.id==cn.dataset.c);if(c)drawFace(cn.getContext('2d'),0,0,40,c.col,'smile',0)});$('evm').style.display='flex'}
+function homeFill(s){s.V.forEach(p=>{const d=P[p.t];if(d.f)p.fuel=d.f;if(d.mp)p.mp=d.mp});s.ec=s.ecCap||s.ec;s.ore=s.V.reduce((a,p)=>a+(P[p.t].orecap||0),0);saveWorld();toast('🌍 ホームの施設: 燃料・RCS・電力・鉱石をすべて補充しました(ホームは資源無限)',3500)}
+function baseSvc(mode){const s=ACT;if(!s||!s.land||s.dead){toast('着陸中に基地の近くで使えます',1800);return}if(s.land-1===HI){if(mode==1)homeFill(s);else toast('ホームは資源無限なので預入は不要です',1800);return}let bs=null;
+ for(const v of VS){if(v===s||v.dead||!v.base||v.land!==s.land)continue;if(Math.abs(Math.atan2(Math.sin(v.la-s.la),Math.cos(v.la-s.la)))*B[s.land-1].R<60){bs=v;break}}
+ if(!bs){toast('60m以内に基地がありません',1800);return}
+ const F=mode==1?bs:s,T=mode==1?s:bs,mvp=(fp,tp,cap,cur)=>{const f=fp.filter(p=>cap(p)>0),t=tp.filter(p=>cap(p)>0),need=t.reduce((a,p)=>a+cap(p)-(p[cur]||0),0),av=f.reduce((a,p)=>a+(p[cur]||0),0),amt=Math.min(need,av);if(amt<=0)return 0;
+  const tn=t.map(p=>cap(p)-(p[cur]||0)),fa=f.map(p=>p[cur]||0);t.forEach((p,i)=>p[cur]=(p[cur]||0)+amt*tn[i]/need);f.forEach((p,i)=>p[cur]=fa[i]-amt*fa[i]/av);return amt};
+ const fu=mvp(F.V,T.V,p=>P[p.t].self?0:(P[p.t].f||0),'fuel'),mp=mvp(F.V,T.V,p=>P[p.t].mp||0,'mp'),ecA=Math.max(0,Math.min(F.ec||0,(T.ecCap||0)-(T.ec||0)));F.ec=(F.ec||0)-ecA;T.ec=(T.ec||0)+ecA;
+ const oreA=Math.max(0,Math.min(F.ore||0,T.V.reduce((a,p)=>a+(P[p.t].orecap||0),0)-(T.ore||0)));F.ore=(F.ore||0)-oreA;T.ore=(T.ore||0)+oreA;
+ saveWorld();toast(`🏗 基地${mode==1?'から補給':'へ預入'}<br>燃料 ${(fu/1e3).toFixed(1)} t / RCS ${mp.toFixed(0)} kg / 電力 ${ecA.toFixed(0)} / 鉱石 ${oreA.toFixed(0)} kg`,3500)}
+function buildBase(){if(refitTarget){toast('改造中です',1500);return}const e=est();if(!e){toast('居住モジュール/ポッドが必要です',2000);return}cleanup();const name='基地'+(nameSeq++);let V=ED.map(p=>({...p,l:[...p.l],crew:(p.crew||[]).filter(id=>CREW.some(c=>c.id==id&&!c.dead)),fuel:P[p.t].f||0,mp:P[p.t].mp||0,on:0,fl:0,u:name,dk:p.dk||0,stv:[...(p.stv||[])]}));V=conn(V);secs(V);
+ let bi=HI,la=Math.PI/2-400/B[HI].R;if(ACT&&ACT.land&&!ACT.eva){bi=ACT.land-1;la=ACT.la-100/B[bi].R}
+ for(let n=0;n<300;n++){const clash=VS.some(v=>v.land===bi+1&&Math.abs(Math.atan2(Math.sin(v.la-la),Math.cos(v.la-la)))*B[bi].R<45),water=B[bi].sea&&terr(bi,la)<0;if(!clash&&!water)break;la-=40/B[bi].R}
+ const v={V,name,x:0,y:0,vx:0,vy:0,th:0,w:0,thr:0,land:bi+1,la,t:CLK,t0:CLK,stg:1,mode:0,hold:0,dead:0,bt:0,oo:{},cs:[],pb:1,eb:1,sci:1,rcs:0,joy:0,base:1,cg:CLK+3};
+ VS.push(v);if(!ACT)ACT=S=v;initCrew(v);place(v,v.t);saveWorld();toast('🏗 '+B[bi].n+'の地表に基地「'+name+'」を設置しました<br>🛰機体管理から確認/操縦できます',4000)}
+function refitCost(){const cur=new Set(ED.map(p=>p.id));let add=0,ref=0;ED.forEach(p=>{if(!refitIds.has(p.id))add+=P[p.t].m});refitTarget.V.forEach(p=>{if(!cur.has(p.id))ref+=P[p.t].m*.5});return{add,ref}}
+function refitInfo(){if(!refitTarget)return'';const c=refitCost(),home=refitTarget.land-1===HI;return `<br><b>🔧改造中: ${refitTarget.name}</b>　追加 ${c.add.toFixed(0)} kg分 / 払戻 ${c.ref.toFixed(0)} kg分　${home?'(ホーム: 資源無限・無料)':'基地の鉱石 '+((refitPool&&refitPool.ore)||0).toFixed(0)+' kg'}`}
+function refitStart(){const v=ACT;if(!v||v.dead||!v.land||v.eva){toast('着陸中の機体/基地で使えます(船外活動中は不可)',2200);return}if(refitTarget)return;const bi=v.land-1;let pool=null;
+ if(bi!==HI){for(const b of VS){if(!b.base||b.dead||b.land!==v.land)continue;if(Math.abs(Math.atan2(Math.sin(b.la-v.la),Math.cos(b.la-v.la)))*B[bi].R<60){pool=b;break}}if(!pool){toast('60m以内に基地がありません(ホームでは基地なしで改造できます)',2500);return}}
+ v.thr=0;edBackup=ED;refitTarget=v;refitPool=pool;refitIds=new Set(v.V.map(p=>p.id));ED=v.V.map(p=>({...p,l:[...p.l],stv:[...(p.stv||[])],crew:[...(p.crew||[])]}));uid=Math.max(uid,...ED.map(p=>p.id));
+ menu=1;rcsMode=0;document.body.classList.add('ed');document.body.classList.remove('rcsmode','evamode');edZ=1;edX=0;edY=0;upd();toast('🔧 改造モード: パーツを足す/消す → ✅改造を確定',3000)}
+function refitCancel(){const v=refitTarget;if(!v)return;ED=edBackup||[];refitTarget=null;refitPool=null;upd();switchTo(v)}
+function refitApply(){const v=refitTarget;if(!v)return;if(!ED.some(p=>P[p.t].seats)){toast('操縦部(ポッド/居住モジュール)が必要です',2000);return}
+ const c=refitCost(),home=v.land-1===HI,old=nb(v.V);if(!home&&c.add>((refitPool&&refitPool.ore)||0)){toast(`鉱石が足りません (必要 ${c.add.toFixed(0)} kg / 基地 ${((refitPool&&refitPool.ore)||0).toFixed(0)} kg)<br>採掘機とISRUで鉱石を集めましょう`,3500);return}
+ const nm=v.V[0]?v.V[0].u:v.name;let V=ED.map(p=>{const o=old[p.id];return o?Object.assign(o,{l:[...p.l],stv:[...(p.stv||[])],st:p.st,dir:p.dir||0,dk:p.dk||0,crew:[...(p.crew||[])]}):{...p,l:[...p.l],stv:[...(p.stv||[])],crew:[...(p.crew||[])],fuel:0,mp:0,on:0,fl:0,u:nm,dk:p.dk||0}});
+ if(conn(V).length<V.length){toast('接続されていないパーツがあります',2200);return}
+ if(!home&&refitPool){const cap=refitPool.V.reduce((a,p)=>a+(P[p.t].orecap||0),0);refitPool.ore=Math.min(cap,Math.max(0,(refitPool.ore||0)-c.add)+c.ref)}
+ V.forEach(p=>{if(p.dk&&!V.some(q=>q.id===p.dk))p.dk=0});v.V=V;secs(v.V);initCrew(v);ED=edBackup||[];refitTarget=null;refitPool=null;upd();saveWorld();switchTo(v);
+ toast('✅ 改造完了'+(home?'(ホーム: 無料)':`<br>鉱石 -${c.add.toFixed(0)} kg / 払戻 +${c.ref.toFixed(0)} kg`),3500)}
 function stage(){if(!S||S.dead||menu)return;const n=nextSt();if(!n){toast('これが最終段です',1500);return}const old=S.V,g0=gm(old),nv=act(old,n),keep=new Set(nv),rem=old.filter(p=>!keep.has(p)&&!(dec(p)&&p.st==n));
  S.V=nv;if(rem.length){if(!S.land)rebase(g0,gm(nv));shed(rem,S.land?0:2,g0)}S.stg=n;toast('段'+n+' 作動',1500)}
 function stress(V,g,al,w,dt){let mx=0;const root=V.find(p=>P[p.t].seats);if(!root)return null;const M=nb(V),par={},ord=[root],seen=new Set([root]),bn=x=>{let b=P[x.t].bf||0;for(const id of x.l){const n=M[id];if(n&&P[n.t].bf)b+=P[n.t].bf}return b};
  for(let i=0;i<ord.length;i++)for(const id of ord[i].l){const n=M[id];if(n&&!seen.has(n)){seen.add(n);par[n.id]=ord[i];ord.push(n)}}
+ const dep={};dep[root.id]=0;for(const n of ord)if(n!==root)dep[n.id]=dep[par[n.id].id]+1;const sbn={};
+ for(const a of V){if(!a.stv)continue;for(const id of a.stv){const b=M[id];if(!b||dep[a.id]===undefined||dep[b.id]===undefined)continue;let x=a,y=b;while(x!==y){if(dep[x.id]>=dep[y.id]){sbn[x.id]=(sbn[x.id]||0)+1.5;x=par[x.id]}else{sbn[y.id]=(sbn[y.id]||0)+1.5;y=par[y.id]}}}}
  let fx=0,fy=0;for(const p of V){fx+=p.fx||0;fy+=(p.fy||0)+(p.fT||0)}const acx=fx/g.m,acy=fy/g.m,F={},A={};
  for(const p of V){const m=P[p.t].m+(p.fuel||0),bx=p.x-g.cx,by=p.y-g.cy,ax=acx-al*by-w*w*bx,ay=acy+al*bx-w*w*by,f0=m*ax-(p.fx||0),f1=m*ay-(p.fy||0)-(p.fT||0);F[p.id]=[f0,f1];A[p.id]=bx*f1-by*f0}
- for(let i=ord.length-1;i>0;i--){const p=ord[i],q=par[p.id],f=F[p.id],lx=(p.x+q.x)/2-g.cx,ly=(p.y+q.y)/2-g.cy,mo=A[p.id]-(lx*f[1]-ly*f[0]),lim=Math.min(jsOf(p),jsOf(q))*(S.eb||1)*(1+Math.max(bn(p),bn(q))),ratio=Math.max(Math.hypot(f[0],f[1])/lim,Math.abs(mo)/(lim*2));
+ for(let i=ord.length-1;i>0;i--){const p=ord[i],q=par[p.id],f=F[p.id],lx=(p.x+q.x)/2-g.cx,ly=(p.y+q.y)/2-g.cy,mo=A[p.id]-(lx*f[1]-ly*f[0]),lim=Math.min(jsOf(p),jsOf(q))*(S.eb||1)*(1+Math.max(bn(p),bn(q))+(sbn[p.id]||0)),ratio=Math.max(Math.hypot(f[0],f[1])/lim,Math.abs(mo)/(lim*2));
   mx=Math.max(mx,ratio);if(ratio>1)p.sx=(p.sx||0)+dt;else p.sx=Math.max(0,(p.sx||0)-2*dt);if(p.sx>.12)return[p,q];F[q.id][0]+=f[0];F[q.id][1]+=f[1];A[q.id]+=A[p.id]}
  S.sr=mx;return null}
 function breakLink(a,b,g0){const s=S;a.l=a.l.filter(i=>i!==b.id);b.l=b.l.filter(i=>i!==a.id);const root=s.V.find(p=>P[p.t].seats),M=nb(s.V),keep=new Set([root]),q=[root];
@@ -275,6 +349,7 @@ function drawFace(c,x,y,s,col,m,t){c.save();c.translate(x,y);c.fillStyle='#1a254
  c.restore()}
 function moodOf(s,c){if(c.dead||s.dead)return'dead';if(s.joy>0)return'joy';const sr=s.sr||0,g=s.gf||0,hd=s.hd||0;if(hd>.4||sr>.9||Math.abs(s.w||0)>1.5)return'scream';if(sr>.6||g>6||hd>.15)return'worry';if(g>3.5)return'strain';return g>1.6?'grin':'smile'}
 // ---------- パーツ描画
+function strutLines(c,V,cx,cy,k){c.strokeStyle='#cfd8e8';c.lineWidth=Math.max(1,.12*k);const M=nb(V);for(const p of V){if(!p.stv)continue;for(const id of p.stv){const q=M[id];if(!q)continue;c.beginPath();c.moveTo((p.x-cx)*k,-(p.y-cy)*k);c.lineTo((q.x-cx)*k,-(q.y-cy)*k);c.stroke()}}}
 function dp(c,t,x,y,w,h,sd,fl,on,dir){c.save();c.translate(x,y);const a=w/2,b=h/2,k=w/P[t].w;c.fillStyle=t.startsWith('tank')?'#f4f4f4':COL[t];c.strokeStyle='#0008';c.lineWidth=1;c.beginPath();
  if(P[t].cap){c.moveTo(-a,b);c.lineTo(a,b);c.lineTo(a*.6,-b*.4);c.lineTo(0,-b);c.lineTo(-a*.6,-b*.4)}
  else if(t[0]=='e'){c.rect(-a*.55,-b,a*1.1,b*.7);c.moveTo(-a*.4,-b*.3);c.lineTo(a*.4,-b*.3);c.lineTo(a*.95,b);c.lineTo(-a*.95,b)}
@@ -285,6 +360,7 @@ function dp(c,t,x,y,w,h,sd,fl,on,dir){c.save();c.translate(x,y);const a=w/2,b=h/
  else if(t=='chute'){c.rect(-a*.6,-b,w*.6,h);c.fill();c.stroke();if(on){c.strokeStyle='#e94';c.fillStyle='#e94';c.beginPath();c.arc(0,-b-3*k,3.2*k,Math.PI,0);c.fill();c.beginPath();c.moveTo(-3.2*k,-b-3*k);c.lineTo(-a*.5,-b);c.moveTo(3.2*k,-b-3*k);c.lineTo(a*.5,-b);c.stroke()}c.restore();return}
  else if(t=='rcs'){c.rect(-a,-b,w,h);c.fill();c.stroke();const D=[[0,-1],[0,1],[-1,0],[1,0]][dir||0],ex_=-D[0],ey_=-D[1];c.fillStyle='#666';c.beginPath();c.moveTo(ex_*a-ey_*a*.5,ey_*a+ex_*a*.5);c.lineTo(ex_*a+ey_*a*.5,ey_*a-ex_*a*.5);c.lineTo(ex_*a*1.8,ey_*a*1.8);c.fill();
   c.strokeStyle='#3d3';c.lineWidth=Math.max(1,w*.08);c.beginPath();c.moveTo(0,0);c.lineTo(D[0]*a*.8,D[1]*a*.8);c.stroke();if(fl>0){c.fillStyle='#9df';c.beginPath();c.moveTo(ex_*a-ey_*a*.4,ey_*a+ex_*a*.4);c.lineTo(ex_*a+ey_*a*.4,ey_*a-ex_*a*.4);c.lineTo(ex_*(a+w*(1+Math.random())*1.4),ey_*(a+w*(1+Math.random())*1.4));c.fill()}c.restore();return}
+ else if(t=='eva'){c.fillStyle='#eee';c.fillRect(-a,-b*.1,w,b*1.1);c.fillStyle='#f4d9a8';c.fillRect(-a*.9,-b,w*.9,b*.9);c.fillStyle='#111';c.fillRect(-a*.5,-b*.65,a*.3,b*.25);c.fillRect(a*.1,-b*.65,a*.3,b*.25);c.fillStyle='#888';c.fillRect(a*.7,-b*.1,a*.5,b*.7);if(fl>0){c.fillStyle='#9df';c.fillRect(a*.8,b*.6,a*.3,b*.5)}c.restore();return}
  else if(P[t].wheel&&t!='rtrack'){c.arc(0,0,a,0,7)}
  else if(P[t].leg){const lg=P[t].lg;c.rect(-a,-b,w,h*.4);c.fill();c.stroke();c.strokeStyle='#bbb';c.lineWidth=Math.max(2,.12*k);c.beginPath();c.moveTo(0,-b*.6);c.lineTo(sd*lg[0]*k,b+lg[1]*k);c.stroke();c.fillStyle='#bbb';c.fillRect(sd*lg[0]*k-.25*k,b+lg[1]*k-1,.5*k,.12*k);c.restore();return}
  else c.rect(-a,-b,w,h);c.fill();c.stroke();
@@ -297,10 +373,15 @@ function dp(c,t,x,y,w,h,sd,fl,on,dir){c.save();c.translate(x,y);const a=w/2,b=h/
  if(t=='rsci'||t=='rlight'||t=='rdrill'){c.fillStyle=t=='rlight'?'#ff6':'#5a5';c.fillRect(-a*.5,-b*.5,a,b*.4)}
  if(t=='mtank'||t=='mtankL'){c.fillStyle='#4a9';c.fillRect(-a,-b*.1,w,b*.2)}
  if(t=='rcs4'){c.fillStyle='#666';[[0,-1],[0,1],[-1,0],[1,0]].forEach(u=>c.fillRect(u[0]*a*.9-a*.2,u[1]*b*.9-b*.2,a*.4,b*.4))}
- if(t=='lab'||t=='hab2'){c.fillStyle='#38f';for(let q=0;q<3;q++)c.fillRect(-a*.6+q*a*.45,-b*.2,a*.28,b*.2)}
+ if(P[t].sol){c.strokeStyle='#8fb4ff';c.lineWidth=1;for(let q=1;q<4;q++){c.beginPath();c.moveTo(-a,-b+h*q/4);c.lineTo(a,-b+h*q/4);c.stroke()}}
+ if(t=='battery'||t=='bbatt'){c.fillStyle='#333';c.fillRect(-a*.6,-b*.2,w*.6,b*.4)}
+ if(t=='bdrill'||t=='rdrill'){c.fillStyle='#777';c.beginPath();c.moveTo(-a*.4,b);c.lineTo(a*.4,b);c.lineTo(0,b+b*.8);c.fill()}
+ if(t=='isru'){c.fillStyle='#d84';c.fillRect(-a*.6,-b*.5,w*.6,b*.5)}
+ if(t=='rlight'&&fl>0){c.fillStyle='rgba(255,255,160,.25)';c.beginPath();c.arc(0,0,w*4,0,7);c.fill();c.fillStyle='rgba(255,255,160,.5)';c.beginPath();c.arc(0,0,w*1.5,0,7);c.fill()}
+ if(t=='lab'||t=='hab2'||t=='bcore'){c.fillStyle='#38f';for(let q=0;q<3;q++)c.fillRect(-a*.6+q*a*.45,-b*.2,a*.28,b*.2)}
  if(t=='cupola'){c.fillStyle='#8cf';c.beginPath();c.ellipse(0,-b*.3,a*.7,b*.6,0,Math.PI,0);c.fill()}
  if(t.startsWith('tank')||t=='lb'){c.fillStyle='#c33';c.fillRect(-a,-b*.1,w,b*.2)}
- if(fl>0){c.fillStyle='#fd6';c.beginPath();c.moveTo(-a*.5,b);c.lineTo(a*.5,b);c.lineTo(0,b+h*(t=='srb'||t=='lb'?.5:1.2)*(1+2.5*fl)*(.8+.4*Math.random()));c.fill()}c.restore()}
+ if(fl>0&&t!='rlight'){c.fillStyle='#fd6';c.beginPath();c.moveTo(-a*.5,b);c.lineTo(a*.5,b);c.lineTo(0,b+h*(t=='srb'||t=='lb'?.5:1.2)*(1+2.5*fl)*(.8+.4*Math.random()));c.fill()}c.restore()}
 // ---------- 組立エディタ
 const NOC=['leg','legL','fin','chute','nose','shield','solar','solarL','antenna','gusset','strutb'],canA=(q,t)=>P[q.t].cap?['chute','nose','rcs','rcs4','dport','dportL','dec','antenna'].includes(t):!NOC.concat('rdec').includes(q.t),canB=q=>!NOC.concat('rdec').includes(q.t),canR=q=>!NOC.includes(q.t);
 const ovl=(x,y,w,h)=>ED.some(q=>Math.abs(q.x-x)<(q.w+w)/2-.05&&Math.abs(q.y-y)<(q.h+h)/2-.05);
@@ -310,30 +391,37 @@ function snapAt(t,mx,my){const d=P[t];if(!ED.length)return{x:0,y:0,par:null};let
   for(const[x,y,md,sd2]of c){if(ovl(x,y,d.w,d.h))continue;const dd=Math.hypot(x-mx,y-my);if(dd<bd){bd=dd;best={x,y,par:q,md,sd:sd2}}}}return best}
 const add=(t,par,x,y,st)=>{const d=P[t],p={id:++uid,t,x,y,w:d.w,h:d.h,st:st||(d.dec?2:d.chute?4:1),dir:0,l:par?[par.id]:[]};if(par)par.l.push(p.id);ED.push(p);return p};
 const U=(q,t,st)=>add(t,q,q.x,q.y+q.h/2+P[t].h/2,st),Rr=(q,t,s,y,st)=>add(t,q,q.x+s*(q.w/2+P[t].w/2),y??q.y,st);
-function prune(){const M=nb(ED);ED.forEach(p=>p.l=p.l.filter(i=>M[i]));let best=[],seen=new Set();ED.forEach(p=>{if(seen.has(p))return;const c=[p],q=[p];seen.add(p);while(q.length){const a=q.pop();for(const i of a.l){const n=M[i];if(n&&!seen.has(n)){seen.add(n);q.push(n);c.push(n)}}}if(c.length>best.length)best=c});ED=ED.filter(p=>best.includes(p))}
+function prune(){const M=nb(ED);ED.forEach(p=>p.l=p.l.filter(i=>M[i]));let best=[],seen=new Set();ED.forEach(p=>{if(seen.has(p))return;const c=[p],q=[p];seen.add(p);while(q.length){const a=q.pop();for(const i of a.l){const n=M[i];if(n&&!seen.has(n)){seen.add(n);q.push(n);c.push(n)}}}if(c.length>best.length)best=c});ED=ED.filter(p=>best.includes(p));{const ids=new Set(ED.map(p=>p.id));ED.forEach(p=>{if(p.stv)p.stv=p.stv.filter(i=>ids.has(i))})}}
 function commit(){if(!ghost||!ghost.ok)return;const q=add(ghost.t,ghost.par,ghost.x,ghost.y);if(P[q.t].dock){q.dir=ghost.md=='a'?0:ghost.md=='b'?1:(ghost.sd>0?3:2);const gp0=ghost.par;if(gp0&&P[gp0.t].dock&&(P[q.t].dsz||1)===(P[gp0.t].dsz||1)){q.dk=gp0.id;gp0.dk=q.id}}
  if(mir&&Math.abs(q.x)>.1){const gp=ghost.par;let mp=null;if(gp)mp=Math.abs(gp.x)<.01?gp:ED.find(z=>z!=gp&&z.t==gp.t&&Math.abs(z.x+gp.x)<.05&&Math.abs(z.y-gp.y)<.05);
   if(mp&&!ovl(-q.x,q.y,q.w,q.h)){const m2=add(q.t,mp,-q.x,q.y,q.st);m2.dir=MIR[q.dir||0]}}
  ghost=null;upd()}
 const ev=()=>{const has=ED.length,xs=ED.flatMap(p=>[p.x-p.w/2,p.x+p.w/2]),ys=ED.flatMap(p=>[p.y-p.h/2,p.y+p.h/2]),x0=has?Math.min(...xs):-2,x1=has?Math.max(...xs):2,y0=has?Math.min(...ys):0,y1=has?Math.max(...ys):4;
  return{es:cl(Math.min((Hh-90)/(y1-y0+6),(W-380)/(x1-x0+8)),6,48)*edZ,cx:(W-320)/2,cy:Hh/2+10,bx:(x0+x1)/2+edX,by:(y0+y1)/2+edY}};
+function partAt(mx,my){return ED.find(p=>Math.abs(p.x-mx)<p.w/2&&Math.abs(p.y-my)<p.h/2)}
+function nearStrut(mx,my){const M=nb(ED);for(const p of ED)for(const id of p.stv||[]){const q=M[id];if(!q)continue;const dx=q.x-p.x,dy=q.y-p.y,L2=dx*dx+dy*dy||1,t=cl(((mx-p.x)*dx+(my-p.y)*dy)/L2,0,1);if(Math.hypot(p.x+dx*t-mx,p.y+dy*t-my)<.35)return[p,id]}return null}
+function endStrut(){const q=partAt(strutTo[0],strutTo[1]),a=strutFrom;strutFrom=null;if(a&&q&&q!==a){if(Math.hypot(q.x-a.x,q.y-a.y)>14)toast('ストラットが長すぎます(最大14m)',1500);else{a.stv=a.stv||[];if(!a.stv.includes(q.id)&&!(q.stv||[]).includes(a.id))a.stv.push(q.id)}}upd()}
 function edPtr(e){const v=ev(),mx=(e.clientX-v.cx)/v.es+v.bx,my=(v.cy-e.clientY)/v.es+v.by;
+ if(tool=='strut'){if(e.type=='pointerdown')strutFrom=partAt(mx,my)||null;strutTo=[mx,my];return}
+ if(e.type=='pointerdown'&&tool=='del'){const ns=nearStrut(mx,my);if(ns&&!partAt(mx,my)){ns[0].stv=ns[0].stv.filter(i=>i!==ns[1]);upd();return}}
  if(e.type=='pointerdown'&&(tool=='del'||tool=='st'||tool=='rd')){const q=ED.find(p=>Math.abs(p.x-mx)<p.w/2&&Math.abs(p.y-my)<p.h/2);if(q){if(tool=='del'){ED=ED.filter(p=>p!=q);prune()}else if(tool=='rd'){if(P[q.t].rcs||P[q.t].dock)q.dir=((q.dir||0)+1)%4}else if(hasSt(q.t))q.st=q.st%9+1;upd()}return}
  if(P[tool]){const s=snapAt(tool,mx,my);ghost=s?{t:tool,x:s.x,y:s.y,par:s.par,md:s.md,sd:s.sd,ok:1}:{t:tool,x:mx,y:my,ok:0}}}
 function drawEd(){const c=ctx,v=ev(),X=x=>v.cx+(x-v.bx)*v.es,Y=y=>v.cy-(y-v.by)*v.es;c.fillStyle='#0b1424';c.fillRect(0,0,W,Hh);c.strokeStyle='#1d2b46';c.setLineDash([6,6]);c.beginPath();c.moveTo(X(0),0);c.lineTo(X(0),Hh);c.stroke();c.setLineDash([]);
  const one=(p,al)=>{c.globalAlpha=al;dp(c,p.t,X(p.x),Y(p.y),p.w*v.es,p.h*v.es,p.x>=0?1:-1,0,0,p.dir);c.globalAlpha=1};
  ED.forEach(p=>{one(p,1);if(P[p.t].seats&&(p.crew||[]).length){c.fillStyle='#000';c.font=Math.max(12,v.es*.6)+'px sans-serif';c.textAlign='center';c.fillText('👨‍🚀'+p.crew.length,X(p.x),Y(p.y)+4)}if(hasSt(p.t)){c.fillStyle='#000';c.font='bold '+Math.max(11,v.es*.5)+'px sans-serif';c.textAlign='center';c.fillText(p.st,X(p.x),Y(p.y)+4)}});c.textAlign='left';
+ {const M=nb(ED);ED.forEach(p=>(p.stv||[]).forEach(id=>{const q=M[id];if(!q)return;c.strokeStyle='#cfd8e8';c.lineWidth=Math.max(2,.15*v.es);c.beginPath();c.moveTo(X(p.x),Y(p.y));c.lineTo(X(q.x),Y(q.y));c.stroke()}));
+  if(strutFrom&&tool=='strut'){c.strokeStyle='#4f8';c.setLineDash([6,4]);c.lineWidth=2;c.beginPath();c.moveTo(X(strutFrom.x),Y(strutFrom.y));c.lineTo(X(strutTo[0]),Y(strutTo[1]));c.stroke();c.setLineDash([])}}
  if(ghost){const p={t:ghost.t,x:ghost.x,y:ghost.y,w:P[ghost.t].w,h:P[ghost.t].h};one(p,.55);if(mir&&ghost.ok&&Math.abs(p.x)>.1)one({...p,x:-p.x},.3);c.strokeStyle=ghost.ok?'#4f4':'#f55';c.lineWidth=2;c.strokeRect(X(p.x)-p.w*v.es/2,Y(p.y)-p.h*v.es/2,p.w*v.es,p.h*v.es)}}
 function est(){const A0=ED.map(p=>({...p,fuel:P[p.t].f||0,on:0}));if(!A0.some(p=>P[p.t].seats))return null;let A=conn(A0);secs(A);const ms=A=>A.reduce((a,p)=>a+P[p.t].m+(p.fuel||0),0),m0=ms(A),
  F1=A.filter(p=>p.st==1&&P[p.t].T).reduce((a,p)=>a+P[p.t].T,0),dv=[];
  for(let k=1;k<=9;k++){A=act(A,k);const E=A.filter(p=>p.on&&P[p.t].T);if(!E.length)continue;const sc=new Set(E.map(p=>p.sec)),tk=A.filter(p=>sc.has(p.sec)&&p.fuel>0),fu=tk.reduce((a,p)=>a+p.fuel,0);if(!fu)continue;
   const m=ms(A),F=E.reduce((a,p)=>a+P[p.t].T,0),isp=F/E.reduce((a,p)=>a+P[p.t].T/P[p.t].v,0);dv.push(isp*G0*Math.log(m/(m-fu)));tk.forEach(p=>p.fuel=0)}
  return{m0,twr:F1/(m0*G0),dv,n:A0.length-conn(A0).length}}
-function saveCode(){return 'KSPD1:'+btoa(JSON.stringify(ED.map(p=>[p.t,+p.x.toFixed(3),+p.y.toFixed(3),p.st,p.id,p.l,p.crew||[],p.dir||0,p.dk||0])))}
-function loadCode(str){return JSON.parse(atob(str.trim().replace(/^KSPD1:/,''))).map(r=>{const d=P[r[0]];if(!d)throw 0;return{id:r[4],t:r[0],x:r[1],y:r[2],w:d.w,h:d.h,st:r[3],l:r[5],crew:r[6]||[],dir:r[7]||0,dk:r[8]||0}})}
+function saveCode(){return 'KSPD1:'+btoa(JSON.stringify(ED.map(p=>[p.t,+p.x.toFixed(3),+p.y.toFixed(3),p.st,p.id,p.l,p.crew||[],p.dir||0,p.dk||0,p.stv||[]])))}
+function loadCode(str){return JSON.parse(atob(str.trim().replace(/^KSPD1:/,''))).map(r=>{const d=P[r[0]];if(!d)throw 0;return{id:r[4],t:r[0],x:r[1],y:r[2],w:d.w,h:d.h,st:r[3],l:r[5],crew:r[6]||[],dir:r[7]||0,dk:r[8]||0,stv:r[9]||[]}})}
 const io=$('io'),ita=$('ita');let iom=0;
 function openIO(m){iom=m;$('iot').textContent=m?'保存したコードを貼り付けて「読み込む」を押してください':'このコードをコピーしてメモ等に保存してください(機体は自動でもこの端末に保存されます)';ita.value=m?'':saveCode();$('iok').textContent=m?'読み込む':'📋 コピー';io.style.display='flex';if(!m){ita.focus();ita.select()}}
-$('iok').addEventListener('click',async()=>{if(iom){try{const A=loadCode(ita.value);if(!A.length)throw 0;ED=A;uid=Math.max(...A.map(p=>p.id));upd();io.style.display='none';toast('読み込みました',1500)}catch(e){toast('コードが正しくありません',2000)}}
+$('iok').addEventListener('click',async()=>{if(iom){if(refitTarget){toast('改造中は読み込めません',1500);return}try{const A=loadCode(ita.value);if(!A.length)throw 0;ED=A;uid=Math.max(...A.map(p=>p.id));upd();io.style.display='none';toast('読み込みました',1500)}catch(e){toast('コードが正しくありません',2000)}}
  else{try{await navigator.clipboard.writeText(ita.value);toast('コピーしました',1500)}catch(e){ita.select();try{document.execCommand('copy')}catch(e2){}toast('コピーしました(できない場合は長押しでコピー)',2500)}}});
 $('icl').addEventListener('click',()=>io.style.display='none');
 let CREW=[],CAND=[];try{CREW=JSON.parse(localStorage.getItem('ksp_crew')||'[]')}catch(e){}
@@ -355,10 +443,11 @@ function initCrew(v){const cs=v.V.flatMap(p=>(p.crew||[]).map(id=>CREW.find(c=>c
 function award(n){S.cs.forEach(c=>c.xp+=n*S.sci);S.joy=4;saveCrew()}
 function drainFuel(V,a){for(const p of V){if(p.fuel>0&&!P[p.t].self){const u=Math.min(p.fuel,a);p.fuel-=u;a-=u;if(a<=0)break}}}
 function drainMp(V,a){for(const p of V){if(p.mp>0){const u=Math.min(p.mp,a);p.mp-=u;a-=u;if(a<=0)break}}}
-function upd(){try{localStorage.setItem('ksp_design',saveCode())}catch(e){}const e=est(),el=$('inf'),h='<b>ロケット組立</b>　パーツをタップで選び、機体の近くへドラッグして指を離すと接続します(緑枠=接続可)<br>';if(!e){el.innerHTML=h+'まずコマンドポッドを置いてください';return}
- el.innerHTML=h+`質量 ${(e.m0/1e3).toFixed(1)} t ／ 離陸TWR <b style="color:${e.twr<1.2?'#f66':'#6f6'}">${e.twr.toFixed(2)}</b> ／ Δv(真空) ${e.dv.map(d=>d.toFixed(0)).join(' + ')||0} = <b>${e.dv.reduce((a,b)=>a+b,0).toFixed(0)}</b> m/s<br><span style="opacity:.7;font-size:12px">ピンチ/2本指で拡大・移動、左下のボタンやスライダー、✋ツールでも操作できます。目安Δv: 軌道3,500 / 月往復+3,000 / 惑星は+数千。エンジンは下向き。丸数字=作動する段(パラシュートも段で開く)。帰還は耐熱シールドを下向きに。補強リング/ブラケット/トラスを継手の近くに付けると構造強度UP。${e.n?'⚠未接続'+e.n+'個は除外':''}</span>`}
-function pre(n){ED=[];uid=0;const rc=(q,sd,y,dir)=>{const r=Rr(q,'rcs',sd,y);r.dir=dir;return r},ring=(q,rows)=>rows.forEach(([y,dr,dl])=>{rc(q,1,q.y+y,dr);rc(q,-1,q.y+y,dl)});
+function upd(){if(!refitTarget){try{localStorage.setItem('ksp_design',saveCode())}catch(e){}}$('rfbar').style.display=refitTarget?'flex':'none';const e=est(),el=$('inf'),h='<b>ロケット組立</b>　パーツをタップで選び、機体の近くへドラッグして指を離すと接続します(緑枠=接続可)<br>';if(!e){el.innerHTML=h+'まずコマンドポッドを置いてください';return}
+ el.innerHTML=h+`質量 ${(e.m0/1e3).toFixed(1)} t ／ 離陸TWR <b style="color:${e.twr<1.2?'#f66':'#6f6'}">${e.twr.toFixed(2)}</b> ／ Δv(真空) ${e.dv.map(d=>d.toFixed(0)).join(' + ')||0} = <b>${e.dv.reduce((a,b)=>a+b,0).toFixed(0)}</b> m/s<br><span style="opacity:.7;font-size:12px">ピンチ/2本指で拡大・移動、左下のボタンやスライダー、✋ツールでも操作できます。目安Δv: 軌道3,500 / 月往復+3,000 / 惑星は+数千。エンジンは下向き。丸数字=作動する段(パラシュートも段で開く)。帰還は耐熱シールドを下向きに。補強リング/ブラケット/トラスを継手の近くに付けると構造強度UP。${e.n?'⚠未接続'+e.n+'個は除外':''}</span>`+refitInfo()}
+function pre(n){if(refitTarget){toast('改造中はサンプルを読み込めません',1800);return}ED=[];uid=0;const rc=(q,sd,y,dir)=>{const r=Rr(q,'rcs',sd,y);r.dir=dir;return r},ring=(q,rows)=>rows.forEach(([y,dr,dl])=>{rc(q,1,q.y+y,dr);rc(q,-1,q.y+y,dl)});
  if(n==3){const pod=add('pod',null,0,0);[1,-1].forEach(sd=>Rr(pod,'rwheel',sd,-.6));const dp_=U(pod,'dport');dp_.dir=0;upd();return}
+ if(n==8){const core=add('bcore',null,0,0),f=U(core,'bfuel');U(f,'bsolar');Rr(core,'bbatt',1,-.5);Rr(core,'isru',-1,-.5);add('bdrill',core,0,-core.h/2-P.bdrill.h/2);Rr(f,'oretank',1,f.y);Rr(core,'dportL',1,.8).dir=3;Rr(f,'rarmL',-1,f.y);Rr(core,'rlight',-1,1.3);upd();return}
  if(n==7){const cab=add('rcab',null,0,0),ch=add('rchas',cab,0,-cab.h/2-.2);[1,-1].forEach(sd=>Rr(ch,'rtrack',sd,-.2));U(cab,'rsolar');const dpr=Rr(cab,'dport',1,0);dpr.dir=3;Rr(cab,'rsci',-1,.3);U(cab,'rsolar');upd();return}
  let q=add(n==1||n==6?'e0':'e1',null,0,0),t1;
  if(n==0||n==2||n==4||n==5){const sb=n==2?3:2;t1=U(q,'tankL');if(n!=2){Rr(t1,'fin',1,t1.y-.8);Rr(t1,'fin',-1,t1.y-.8)}q=U(t1,'tankL');q=U(q,'tankL');q=U(q,'dec',sb);q=U(q,'e3',sb);
@@ -369,29 +458,29 @@ function pre(n){ED=[];uid=0;const rc=(q,sd,y,dir)=>{const r=Rr(q,'rcs',sd,y);r.d
  else{t1=U(q,'tankW');Rr(t1,'fin',1,t1.y-1);Rr(t1,'fin',-1,t1.y-1);q=U(t1,'tankW');q=U(q,'dec');q=U(q,'e2',2);q=U(q,'tankL');q=U(q,'tankL');q=U(q,'dec',3);q=U(q,'e3',3);Rr(q,'leg',1);Rr(q,'leg',-1);q=U(q,'tank');q=U(q,'tank');q=U(q,'pod');if(n==6){const d1=U(q,'dport');d1.dir=0;const d2=U(d1,'dport');d2.dir=1;d1.dk=d2.id;d2.dk=d1.id;const rp=U(d2,'pod');[1,-1].forEach(sd=>Rr(rp,'rwheel',sd,rp.y-.6))}else U(q,'chute')}upd()}
 const pal=$('pal'),mkb=(t,fn)=>{const b=document.createElement('button');b.className='b';b.innerHTML=t;b.addEventListener('click',()=>fn(b));pal.append(b);return b};
 const sel=()=>[...pal.children].forEach(b=>b.classList.toggle('on',b.dataset.t==tool||(b.dataset.t=='mir'&&mir)));
-Object.keys(P).forEach(k=>{const b=mkb(P[k].n,()=>{tool=k;sel()});b.dataset.t=k;b.dataset.cat=P[k].cat||'その他'});
-mkb('🗑 削除(タップ)',()=>{tool='del';sel()}).dataset.t='del';mkb('🔢 段番号(タップで変更)',()=>{tool='st';sel()}).dataset.t='st';mkb('🔄 RCS/ポートの向き(タップ)',()=>{tool='rd';sel()}).dataset.t='rd';mkb('✋ 画面移動(1本指ドラッグ)',()=>{tool='pan';sel()}).dataset.t='pan';mkb('↔ 左右ミラー(横付け)',()=>{mir=!mir;sel()}).dataset.t='mir';
-mkb('📋 サンプル:軌道ロケット',()=>pre(0));mkb('🌕 サンプル:月着陸機',()=>pre(1));mkb('🚀 サンプル:ブースター付き',()=>pre(2));mkb('🚙 サンプル:ローバー',()=>pre(3));mkb('🚜 サンプル:クローラー探査車',()=>pre(7));mkb('🌕 サンプル:月着陸機+ローバー(ドッキング済)',()=>pre(6));mkb('🛰 サンプル:ステーション打上機',()=>pre(4));mkb('📦 サンプル:補給船',()=>pre(5));mkb('🛰 打ち上げ済みの機体',()=>{vmUI();$('vm').style.display='flex'});mkb('全消去',()=>{ED=[];upd()});mkb('👨‍🚀 クルーを雇う/搭乗',()=>{if(!CAND.length)CAND=[gen(),gen(),gen()];crewUI();$('cw').style.display='flex'});mkb('📤 コードに変換',()=>openIO(0));mkb('📥 コードから読込',()=>openIO(1));
+Object.keys(P).forEach(k=>{if(P[k].hide)return;const b=mkb(P[k].n,()=>{tool=k;sel()});b.dataset.t=k;b.dataset.cat=P[k].cat||'その他'});
+mkb('🗑 削除(タップ)',()=>{tool='del';sel()}).dataset.t='del';mkb('🔢 段番号(タップで変更)',()=>{tool='st';sel()}).dataset.t='st';mkb('🔄 RCS/ポートの向き(タップ)',()=>{tool='rd';sel()}).dataset.t='rd';{const b=mkb('🔗 補強ストラット(部品から部品へドラッグ)',()=>{tool='strut';sel()});b.dataset.t='strut';b.dataset.cat='構造/補強'}mkb('✋ 画面移動(1本指ドラッグ)',()=>{tool='pan';sel()}).dataset.t='pan';mkb('↔ 左右ミラー(横付け)',()=>{mir=!mir;sel()}).dataset.t='mir';
+mkb('📋 サンプル:軌道ロケット',()=>pre(0));mkb('🌕 サンプル:月着陸機',()=>pre(1));mkb('🚀 サンプル:ブースター付き',()=>pre(2));mkb('🚙 サンプル:ローバー',()=>pre(3));mkb('🚜 サンプル:クローラー探査車',()=>pre(7));mkb('🏗 サンプル:地上基地',()=>pre(8));mkb('🏗 基地として設置(着陸地点の隣)',()=>buildBase());mkb('🌕 サンプル:月着陸機+ローバー(ドッキング済)',()=>pre(6));mkb('🛰 サンプル:ステーション打上機',()=>pre(4));mkb('📦 サンプル:補給船',()=>pre(5));mkb('🛰 打ち上げ済みの機体',()=>{vmUI();$('vm').style.display='flex'});mkb('全消去',()=>{if(refitTarget)return;ED=[];upd()});mkb('👨‍🚀 クルーを雇う/搭乗',()=>{if(!CAND.length)CAND=[gen(),gen(),gen()];crewUI();$('cw').style.display='flex'});mkb('📤 コードに変換',()=>openIO(0));mkb('📥 コードから読込',()=>openIO(1));
 {const b=mkb('🚀 発射台へ',()=>start());b.style.cssText='background:#2a6fdb;font-size:16px;padding:12px;grid-column:1/-1';b.dataset.cat='*'};[...pal.children].forEach(b=>{if(!b.dataset.cat)b.dataset.cat=b.dataset.t?'ツール':'サンプル'});
 const tabs=document.createElement('div');tabs.style.cssText='grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:0;z-index:2;background:#0b1424;padding-bottom:4px';
 const setCat=c=>{[...pal.children].forEach(b=>{if(b===tabs)return;b.style.display=(c=='all'||b.dataset.cat=='*'||b.dataset.cat==c)?'':'none'});[...tabs.children].forEach(t=>t.classList.toggle('on',t.dataset.c==c))};
-['all','ポッド/居住','タンク','エンジン','構造/補強','制御','着陸/探査/空力','ローバー','ステーション','ツール','サンプル'].forEach(c=>{const t=document.createElement('button');t.className='b';t.dataset.c=c;t.textContent=c=='all'?'すべて':c;t.style.cssText='padding:5px 8px;font-size:12px;min-width:0;touch-action:pan-y';t.addEventListener('click',()=>setCat(c));tabs.append(t)});
+['all','ポッド/居住','タンク','エンジン','構造/補強','制御','着陸/探査/空力','ローバー','ステーション','基地/電力','ツール','サンプル'].forEach(c=>{const t=document.createElement('button');t.className='b';t.dataset.c=c;t.textContent=c=='all'?'すべて':c;t.style.cssText='padding:5px 8px;font-size:12px;min-width:0;touch-action:pan-y';t.addEventListener('click',()=>setCat(c));tabs.append(t)});
 pal.prepend(tabs);setCat('all');
 sel();try{const v=localStorage.getItem('ksp_design');if(v){ED=loadCode(v);uid=Math.max(0,...ED.map(p=>p.id))}}catch(e){ED=[]}if(!ED.length)pre(1);else upd();
 function cleanup(){VS=VS.filter(v=>!v.dead);if(!VS.includes(ACT)){ACT=S=VS[0]||null}}
-function start(){const e=est();if(!e){toast('コマンドポッドが必要です',2000);return}if(e.n)toast('未接続パーツを除外しました',2000);
- cleanup();const name='機体'+(nameSeq++);let V=ED.map(p=>({...p,l:[...p.l],crew:(p.crew||[]).filter(id=>CREW.some(c=>c.id==id&&!c.dead)),fuel:P[p.t].f||0,mp:P[p.t].mp||0,on:0,fl:0,u:name,dk:p.dk||0}));V=conn(V);secs(V);{const M=nb(V),root=V.find(p=>P[p.t].seats),seen=new Set(),lab=['','B','C','D'];let ui=0;const walk=st=>{const q=[st];seen.add(st);st.u=name+lab[Math.min(ui,3)];while(q.length){const a=q.pop();for(const i of a.l){const n=M[i];if(n&&!seen.has(n)&&!(a.dk===n.id)){seen.add(n);n.u=a.u;q.push(n)}}}ui++};if(root)walk(root);V.forEach(p=>{if(!seen.has(p))walk(p)})}V=act(V,1);
+function start(){if(refitTarget){toast('改造中です(確定か取消をしてください)',2000);return}const e=est();if(!e){toast('コマンドポッドが必要です',2000);return}if(e.n)toast('未接続パーツを除外しました',2000);
+ cleanup();const name='機体'+(nameSeq++);let V=ED.map(p=>({...p,l:[...p.l],crew:(p.crew||[]).filter(id=>CREW.some(c=>c.id==id&&!c.dead)),fuel:P[p.t].f||0,mp:P[p.t].mp||0,on:0,fl:0,u:name,dk:p.dk||0,stv:[...(p.stv||[])]}));V=conn(V);secs(V);{const M=nb(V),root=V.find(p=>P[p.t].seats),seen=new Set(),lab=['','B','C','D'];let ui=0;const walk=st=>{const q=[st];seen.add(st);st.u=name+lab[Math.min(ui,3)];while(q.length){const a=q.pop();for(const i of a.l){const n=M[i];if(n&&!seen.has(n)&&!(a.dk===n.id)){seen.add(n);n.u=a.u;q.push(n)}}}ui++};if(root)walk(root);V.forEach(p=>{if(!seen.has(p))walk(p)})}V=act(V,1);
  let la=Math.PI/2;while(VS.some(v=>v.land===HI+1&&Math.abs(Math.atan2(Math.sin(v.la-la),Math.cos(v.la-la)))*B[HI].R<70))la-=90/B[HI].R;
  const v={V,name,x:0,y:0,vx:0,vy:0,th:0,w:0,thr:0,land:HI+1,la,t:CLK,t0:CLK,stg:1,mode:0,hold:Math.PI/2,dead:0,bt:0,oo:{},cs:[],pb:1,eb:1,sci:1,rcs:0,joy:0};
  VS.push(v);S=ACT=v;initCrew(v);place(v,v.t);warp=1;map=0;zf=[3,1];menu=0;PR=null;tgt=null;rcsMode=0;document.body.classList.remove('ed','rcsmode');sync();saveWorld();
  toast(v.cs.length?'乗員'+v.cs.length+'名搭乗。スロットルを上げて発射!':'無人機です(組立画面の👨‍🚀クルーで乗せられます)。スロットルを上げて発射!')}
-function saveWorld(){try{const st=p=>({id:p.id,t:p.t,x:p.x,y:p.y,w:p.w,h:p.h,st:p.st,l:p.l,crew:p.crew||[],fuel:p.fuel||0,mp:p.mp||0,on:p.on||0,dir:p.dir||0,dk:p.dk||0,u:p.u||''});
- localStorage.setItem('ksp_world',JSON.stringify({clk:CLK,seq:nameSeq,act:VS.indexOf(ACT),vs:VS.filter(v=>!v.dead).map(v=>({name:v.name,x:v.x,y:v.y,vx:v.vx,vy:v.vy,th:v.th,w:v.w,land:v.land,la:v.la,t0:v.t0,stg:v.stg,mode:v.mode,hold:v.hold,V:v.V.map(st)}))}))}catch(e){}}
+function saveWorld(){try{const st=p=>({id:p.id,t:p.t,x:p.x,y:p.y,w:p.w,h:p.h,st:p.st,l:p.l,crew:p.crew||[],fuel:p.fuel||0,mp:p.mp||0,on:p.on||0,dir:p.dir||0,dk:p.dk||0,u:p.u||'',stv:p.stv||[]});
+ localStorage.setItem('ksp_world',JSON.stringify({clk:CLK,seq:nameSeq,act:VS.indexOf(ACT),vs:VS.filter(v=>!v.dead).map(v=>({name:v.name,x:v.x,y:v.y,vx:v.vx,vy:v.vy,th:v.th,w:v.w,land:v.land,la:v.la,t0:v.t0,stg:v.stg,mode:v.mode,hold:v.hold,eva:v.eva||0,base:v.base||0,drill:v.drill||0,ec:v.ec,ore:v.ore||0,V:v.V.map(st)}))}))}catch(e){}}
 function loadWorld(){try{const j=JSON.parse(localStorage.getItem('ksp_world')||'null');if(!j||!j.vs||!j.vs.length)return;CLK=j.clk;nameSeq=j.seq;
  VS=j.vs.map(r=>{const V=r.V.map(p=>({...p,fl:0}));if(V.some(p=>!P[p.t]))throw 0;secs(V);const v={...r,V,thr:0,t:CLK,dead:0,bt:0,oo:{},cs:[],pb:1,eb:1,sci:1,rcs:0,joy:0};initCrew(v);return v});ACT=S=VS[Math.max(0,j.act)]||VS[0]}catch(e){VS=[];ACT=S=null}}
 function switchTo(v){if(ACT)ACT.thr=0;ACT=S=v;v.t=CLK;PR=null;tgt=null;rcsMode=0;warp=1;menu=0;document.body.classList.remove('ed','rcsmode');sync();toast('操縦: '+v.name,1500);saveWorld()}
 function vmUI(){const h=['<div style="font-weight:700;margin-bottom:6px">🛰 打ち上げた機体の管理</div>'];if(!VS.length)h.push('<div style="padding:8px;opacity:.7">機体はありません</div>');
- VS.forEach((v,i)=>{const q=pri(v.x,v.y,v.vx,v.vy,CLK),Bq=B[q.i],al=Math.hypot(q.x,q.y)-Bq.R;h.push(`<div class=cr style="flex-wrap:wrap"><input value="${v.name}" data-i=${i} style="width:110px;background:#05070d;color:#cfe;border:1px solid var(--bd);border-radius:8px;padding:6px;font-size:14px;-webkit-user-select:text;user-select:text">${v===ACT?'<b>★</b>':''}<small>${Bq.n} ${v.dead?'破壊':v.land?'着陸中':'高度 '+fm(al)}・${v.V.length}パーツ${(v.cs||[]).length?'・乗員'+v.cs.length:''}</small><button class=b data-a=go data-i=${i}>操縦</button><button class=b data-a=del data-i=${i} ${vmArm===i?'style="background:#a22"':''}>${vmArm===i?'本当に?':'削除'}</button></div>`)});
+ VS.forEach((v,i)=>{const q=pri(v.x,v.y,v.vx,v.vy,CLK),Bq=B[q.i],al=Math.hypot(q.x,q.y)-Bq.R;h.push(`<div class=cr style="flex-wrap:wrap"><input value="${v.name}" data-i=${i} style="width:110px;background:#05070d;color:#cfe;border:1px solid var(--bd);border-radius:8px;padding:6px;font-size:14px;-webkit-user-select:text;user-select:text">${v===ACT?'<b>★</b>':''}${v.base?'🏗':''}${v.eva?'🧑‍🚀':''}<small>${Bq.n} ${v.dead?'破壊':v.land?'着陸中':'高度 '+fm(al)}・${v.V.length}パーツ${(v.cs||[]).length?'・乗員'+v.cs.length:''}</small><button class=b data-a=go data-i=${i}>操縦</button><button class=b data-a=del data-i=${i} ${vmArm===i?'style="background:#a22"':''}>${vmArm===i?'本当に?':'削除'}</button></div>`)});
  h.push('<button class=b data-a=new style="margin-top:8px">🔧 新しい機体を組む</button> <button class=b data-a=close>閉じる</button>');$('vmi').innerHTML=h.join('')}
 // ---------- 飛行描画// ---------- 飛行描画
 function draw(){const c=ctx;c.setTransform(DPR,0,0,DPR,0,0);if(menu||!S){drawEd();return}
@@ -407,15 +496,39 @@ function draw(){const c=ctx;c.setTransform(DPR,0,0,DPR,0,0);if(menu||!S){drawEd(
  if(map){c.strokeStyle='#445';c.lineWidth=1;for(let i=1;i<B.length;i++){const p=Q(pn[B[i].p][0],pn[B[i].p][1]);c.beginPath();c.arc(p[0],p[1],B[i].a*sc,0,7);c.stroke()}
   if(bI){const p=Q(pc[0],pc[1]);c.setLineDash([4,4]);c.strokeStyle='#9ad';c.beginPath();c.arc(p[0],p[1],Bd.soi*sc,0,7);c.stroke();c.setLineDash([])}}
  const hs=(i,k)=>{const x=Math.sin(k*127.1+i*311.7)*43758.5453;return x-Math.floor(x)};
- const decor=(i,ca,w,rot,bc)=>{const b=B[i],R0=b.R;if(sc<.25)return;const dl=18/R0,span=Math.min(w,1.2*Math.max(W,Hh)/(sc*R0)),k0=Math.floor((ca-span+rot)/dl),k1=Math.ceil((ca+span+rot)/dl);if(k1-k0>1500)return;
+ const DEC={2:[['pine',3,60,1100],['tree',3,8,700],['bush',2,3,900],['house',.5,3,60],['mill',.4,15,500],['rock',2,-1e9,3000],['bigrock',.5,-1e9,3000]],
+ 8:[['palm',4,2,150],['bush',2,2,300],['lighthouse',.2,3,40],['rock',2,-1e9,3000],['coral',2,.5,8]],1:[['lava',3,-1e9,1e9],['rock',1.5,-1e9,1e9],['crys',1,-1e9,1e9]],
+ 3:[['rock',4,-1e9,1e9],['bigrock',1,-1e9,1e9],['mono',.06,-1e9,1e9],['flag',.1,-1e9,1e9]],4:[['crys',3,-1e9,1e9],['rock',2,-1e9,1e9]],
+ 5:[['cactus',2,-1e9,1e9],['rock',3,-1e9,1e9],['arch',.35,-1e9,1e9],['dead',1.5,-1e9,1e9]],6:[['rock',4,-1e9,1e9],['bigrock',.8,-1e9,1e9],['wreck',.12,-1e9,1e9]],
+ 9:[['spire',3,-1e9,1e9],['dead',1,-1e9,1e9],['rock',2,-1e9,1e9],['mound',2,-1e9,1e9]]};
+ const drawObj=(ty,i,r2,r3,tm)=>{const u=sc,hh=3+r3*6,rk=i==2||i==8?'#7b7b78':i==5?'#8a4a30':i==9?'#bcd0e0':i==1?'#3a2a26':'#6e6a66';
+  const poly_=(pts,col)=>{c.fillStyle=col;c.beginPath();pts.forEach((p,k)=>k?c.lineTo(p[0]*u,p[1]*u):c.moveTo(p[0]*u,p[1]*u));c.closePath();c.fill()};
+  switch(ty){
+  case 'pine':c.fillStyle='#5a3b22';c.fillRect(-.25*u,-hh*.3*u,.5*u,hh*.3*u);for(let q=0;q<3;q++){const y=-hh*(.25+q*.25)*u,ww=hh*(.32-q*.07)*u;c.fillStyle='#2b6f35';c.beginPath();c.moveTo(-ww,y);c.lineTo(0,y-hh*.4*u);c.lineTo(ww,y);c.fill()}break;
+  case 'tree':c.fillStyle='#5a3b22';c.fillRect(-.2*u,-hh*.45*u,.4*u,hh*.45*u);c.fillStyle=r3>.5?'#3c8f3c':'#6a9a30';c.beginPath();c.arc(0,-hh*.65*u,hh*.32*u,0,7);c.fill();break;
+  case 'bush':c.fillStyle='#4a8a3a';c.beginPath();c.ellipse(0,-.5*u,.9*u*(.6+r3),.55*u,0,0,7);c.fill();break;
+  case 'house':poly_([[-1.7,0],[1.7,0],[1.7,-2.2],[-1.7,-2.2]],'#d8c9a8');poly_([[-2,-2.2],[0,-3.8],[2,-2.2]],'#a33');poly_([[-.3,0],[.3,0],[.3,-1.2],[-.3,-1.2]],'#5a3b22');poly_([[.8,-1.4],[1.4,-1.4],[1.4,-.8],[.8,-.8]],'#9cf');break;
+  case 'mill':c.fillStyle='#ddd';c.fillRect(-.15*u,-9*u,.3*u,9*u);c.strokeStyle='#eee';c.lineWidth=.25*u;for(let q=0;q<3;q++){const a=tm*1.2+q*2.094+r2*6;c.beginPath();c.moveTo(0,-9*u);c.lineTo(Math.cos(a)*4.5*u,-9*u+Math.sin(a)*4.5*u);c.stroke()}break;
+  case 'lighthouse':poly_([[-1,0],[1,0],[.6,-10],[-.6,-10]],'#eee');poly_([[-.85,-4],[.85,-4],[.78,-5.4],[-.78,-5.4]],'#c33');poly_([[-.6,-11.2],[.6,-11.2],[.6,-10],[-.6,-10]],'#ff8');break;
+  case 'palm':{const tx=(r2-.5)*3*u,ty=-hh*1.1*u;c.strokeStyle='#8a6a3a';c.lineWidth=.4*u;c.beginPath();c.moveTo(0,0);c.quadraticCurveTo(tx*.2,-hh*.6*u,tx,ty);c.stroke();c.strokeStyle='#2f9a45';c.lineWidth=.35*u;for(let q=-2;q<=2;q++){c.beginPath();c.moveTo(tx,ty);c.lineTo(tx+q*1.1*u,ty+(.8-Math.abs(q)*.1)*u);c.stroke()}break}
+  case 'coral':for(let q=-1;q<=1;q++)poly_([[q*.5-.25,0],[q*.5+.25,0],[q*.5,-(.6+r3+Math.abs(q)*-.2)]],r2>.5?'#e66':'#e9a');break;
+  case 'lava':poly_([[-1.3,0],[-.8,-1],[.3,-1.3],[1.2,-.4],[1.4,0]],rk);c.fillStyle='rgba(255,110,20,.85)';c.fillRect(-.3*u,-.5*u,.6*u,.12*u);c.beginPath();c.arc(.5*u,-.3*u,.15*u,0,7);c.fill();break;
+  case 'crys':for(let q=-1;q<=1;q++)poly_([[q*.7-.3,0],[q*.7+.3,0],[q*.7,-(1.5+r3*2.5-Math.abs(q)*.6)]],i==4?'#7fe8d0':'#ff9a3c');break;
+  case 'cactus':c.fillStyle='#4f8a46';c.fillRect(-.25*u,-hh*.7*u,.5*u,hh*.7*u);c.fillRect(-1.1*u,-hh*.45*u,.9*u,.3*u);c.fillRect(-1.1*u,-hh*.45*u-1.1*u,.3*u,1.4*u);c.fillRect(.2*u,-hh*.55*u,.9*u,.3*u);c.fillRect(.8*u,-hh*.55*u-.9*u,.3*u,1.2*u);break;
+  case 'arch':poly_([[-3,0],[-1.8,0],[-1.8,-5],[-3,-5]],'#a8553a');poly_([[1.8,0],[3,0],[3,-5],[1.8,-5]],'#a8553a');poly_([[-3.2,-5],[3.2,-5],[3,-6.2],[-3,-6.2]],'#b8654a');break;
+  case 'dead':c.strokeStyle=i==9?'#dfefff':'#6a4a30';c.lineWidth=.3*u;c.beginPath();c.moveTo(0,0);c.lineTo(0,-hh*.8*u);c.moveTo(0,-hh*.4*u);c.lineTo(-1.1*u,-hh*.65*u);c.moveTo(0,-hh*.55*u);c.lineTo(1*u,-hh*.85*u);c.stroke();break;
+  case 'mono':poly_([[-.45,0],[.45,0],[.45,-4],[-.45,-4]],'#050505');break;
+  case 'flag':c.strokeStyle='#ddd';c.lineWidth=.12*u;c.beginPath();c.moveTo(0,0);c.lineTo(0,-3*u);c.stroke();poly_([[0,-3],[1.4,-2.7],[0,-2.2]],'#e33');break;
+  case 'wreck':c.save();c.rotate(.12);poly_([[-1.3,-.5],[1.3,-.5],[1.3,-1.4],[-1.3,-1.4]],'#777');c.fillStyle='#333';c.beginPath();c.arc(-.8*u,-.4*u,.45*u,0,7);c.arc(.8*u,-.4*u,.45*u,0,7);c.fill();c.restore();break;
+  case 'spire':for(let q=-1;q<=1;q++)poly_([[q*.8-.35,0],[q*.8+.35,0],[q*.8,-(2+r3*4-Math.abs(q)*1)]],q?'#a8d4ff':'#cfe8ff');break;
+  case 'mound':c.fillStyle='#eef6ff';c.beginPath();c.ellipse(0,0,(1.5+r3*2)*u,(.7+r3*.6)*u,0,Math.PI,0);c.fill();break;
+  default:{const rs=ty=='bigrock'?4+r3*6:.5+r3*r3*3.5;poly_([[-rs,0],[-rs*.6,-rs*.8],[rs*.2,-rs],[rs,-rs*.3],[rs*1.1,0]],r3>.9?'#8d8579':rk)}}};
+ const pickT=(i,g,r2)=>{const L=(DEC[i]||[['rock',1,-1e9,1e9]]).filter(e=>g>=e[2]&&g<=e[3]);let tot=0;L.forEach(e=>tot+=e[1]);let x=r2*tot;for(const e of L){if(x<e[1])return e[0];x-=e[1]}return 'rock'};
+ const decor=(i,ca,w,rot,bc)=>{const b=B[i],R0=b.R;if(sc<.25)return;const dl=18/R0,span=Math.min(w,1.2*Math.max(W,Hh)/(sc*R0)),k0=Math.floor((ca-span+rot)/dl),k1=Math.ceil((ca+span+rot)/dl),tm=performance.now()/1000;if(k1-k0>1500)return;
   for(let k=k0;k<=k1;k++){const r1=hs(i,k),r2=hs(i,k+.37),r3=hs(i,k+.71);if(r1<.42)continue;const la=(k+r2)*dl,a=la-rot,g=gnd(i,la);if(b.sea&&g<2)continue;if(i===HI&&Math.abs(Math.atan2(Math.sin(la-Math.PI/2),Math.cos(la-Math.PI/2)))*R0<220)continue;
-   const p0=Q(bc[0]+(R0+g)*Math.cos(a),bc[1]+(R0+g)*Math.sin(a));if(p0[0]<-90||p0[0]>W+90||p0[1]<-90||p0[1]>Hh+90)continue;const p1=Q(bc[0]+(R0+g+1)*Math.cos(a),bc[1]+(R0+g+1)*Math.sin(a));
-   c.save();c.translate(p0[0],p0[1]);c.rotate(Math.atan2(p1[0]-p0[0],-(p1[1]-p0[1])));const hh=3+r3*6;
-   if(b.sea&&g<1100&&r1>.6){if(r2<.5){c.fillStyle='#5a3b22';c.fillRect(-.25*sc,-hh*.4*sc,.5*sc,hh*.4*sc);c.fillStyle='#2f7a35';c.beginPath();c.moveTo(-hh*.28*sc,-hh*.3*sc);c.lineTo(0,-hh*sc);c.lineTo(hh*.28*sc,-hh*.3*sc);c.fill();c.beginPath();c.moveTo(-hh*.22*sc,-hh*.55*sc);c.lineTo(0,-hh*1.1*sc);c.lineTo(hh*.22*sc,-hh*.55*sc);c.fill()}
-    else{c.fillStyle='#5a3b22';c.fillRect(-.2*sc,-hh*.45*sc,.4*sc,hh*.45*sc);c.fillStyle=r3>.5?'#3c8f3c':'#6a9a30';c.beginPath();c.arc(0,-hh*.65*sc,hh*.32*sc,0,7);c.fill()}}
-   else{const rs=(.5+r3*r3*3.5)*sc;c.fillStyle=r3>.9?'#8d8579':(b.sea?'#7b7b78':'#6e6a66');c.beginPath();c.moveTo(-rs,0);c.lineTo(-rs*.6,-rs*.8);c.lineTo(rs*.2,-rs);c.lineTo(rs,-rs*.3);c.lineTo(rs*1.1,0);c.closePath();c.fill()}
-   c.restore()}};
- const terrain=i=>{const b=B[i],bc=pn[i],R0=b.R,ca=Math.atan2(s.y-bc[1],s.x-bc[0]),w=Math.min(Math.PI,4000/(R0*sc)),N=96,rot=b.w*s.t,rr=Math.max(R0*.5,R0-3000/sc);if(b.sea)poly(i,R0,'#2c5f9e');
+   const p0=Q(bc[0]+(R0+g)*Math.cos(a),bc[1]+(R0+g)*Math.sin(a));if(p0[0]<-120||p0[0]>W+120||p0[1]<-120||p0[1]>Hh+120)continue;const p1=Q(bc[0]+(R0+g+1)*Math.cos(a),bc[1]+(R0+g+1)*Math.sin(a));
+   c.save();c.translate(p0[0],p0[1]);c.rotate(Math.atan2(p1[0]-p0[0],-(p1[1]-p0[1])));drawObj(pickT(i,g,hs(i,k+.13)),i,r2,r3,tm);c.restore()}};
+ const terrain=i=>{const b=B[i],bc=pn[i],R0=b.R,ca=Math.atan2(s.y-bc[1],s.x-bc[0]),w=Math.min(Math.PI,4000/(R0*sc)),N=cl(Math.round(sc*80),96,420),rot=b.w*s.t,rr=Math.max(R0*.5,R0-3000/sc);if(b.sea)poly(i,R0,'#2c5f9e');
   let prev=null;for(let k=-N;k<=N;k++){const a=ca+w*k/N,h=gnd(i,a+rot),top=Q(bc[0]+(R0+h)*Math.cos(a),bc[1]+(R0+h)*Math.sin(a)),bot=Q(bc[0]+rr*Math.cos(a),bc[1]+rr*Math.sin(a));
    if(prev&&!(b.sea&&h<=0&&prev.h<=0)){const hh=(h+prev.h)/2;c.beginPath();c.moveTo(prev.top[0],prev.top[1]);c.lineTo(top[0],top[1]);c.lineTo(bot[0],bot[1]);c.lineTo(prev.bot[0],prev.bot[1]);c.closePath();
     c.fillStyle=b.sea?(hh<25?'#c9b77a':hh<500?'#3f7a45':hh<1000?'#7a6a4a':hh<1500?'#8a8a8a':'#f0f0f5'):b.col;c.fill();if(!b.sea){c.fillStyle='rgba(255,255,255,'+cl(hh/4000+.02,0,.5)+')';c.fill()}}prev={top,bot,h}}decor(i,ca,w,rot,bc)};
@@ -438,17 +551,17 @@ function draw(){const c=ctx;c.setTransform(DPR,0,0,DPR,0,0);if(menu||!S){drawEd(
  DB.forEach(d=>{const p=Q(d.x,d.y);if(map){c.fillStyle='#fa6';c.fillRect(p[0]-1,p[1]-1,3,3);return}if(p[0]<-300||p[0]>W+300||p[1]<-300||p[1]>Hh+300)return;const k=Math.max(sc,1.5),dx=Math.cos(d.th),dy=Math.sin(d.th);c.save();c.translate(p[0],p[1]);c.rotate(Math.atan2(dx*cuy-dy*cux,dx*cux+dy*cuy));d.V.forEach(q=>dp(c,q.t,(q.x-d.cx)*k,-(q.y-d.cy)*k,q.w*k,q.h*k,q.x>=0?1:-1,0,0,q.dir));c.restore()});
  FX.forEach(f=>{const p=Q(f.x,f.y),u=f.t/1.4;c.globalAlpha=Math.max(0,1-u);c.fillStyle='#fb4';c.beginPath();c.arc(p[0],p[1],8+f.sz*u*70,0,7);c.fill();c.fillStyle='#f63';c.beginPath();c.arc(p[0],p[1],4+f.sz*u*40,0,7);c.fill();c.globalAlpha=1});
  VS.forEach(v=>{if(v===s||v.dead)return;const p=Q(v.x,v.y);if(map||sc*10<8){c.fillStyle=v===tg?'#fd4':'#8df';c.beginPath();c.moveTo(p[0],p[1]-6);c.lineTo(p[0]-5,p[1]+5);c.lineTo(p[0]+5,p[1]+5);c.fill();c.fillStyle='#cde';c.font='12px sans-serif';c.fillText(v.name,p[0]+8,p[1]+4);return}
-  if(p[0]<-600||p[0]>W+600||p[1]<-600||p[1]>Hh+600)return;const gv=gm(v.V),hx_=Math.cos(v.th),hy_=Math.sin(v.th);c.save();c.translate(p[0],p[1]);c.rotate(Math.atan2(hx_*cuy-hy_*cux,hx_*cux+hy_*cuy));v.V.forEach(q=>dp(c,q.t,(q.x-gv.cx)*sc,-(q.y-gv.cy)*sc,q.w*sc,q.h*sc,q.x>=0?1:-1,q.fl||0,q.on,q.dir));c.restore();c.fillStyle='#cde';c.font='12px sans-serif';c.fillText(v.name,p[0]+10,p[1]-10)});
+  if(p[0]<-600||p[0]>W+600||p[1]<-600||p[1]>Hh+600)return;const gv=gm(v.V),hx_=Math.cos(v.th),hy_=Math.sin(v.th);c.save();c.translate(p[0],p[1]);c.rotate(Math.atan2(hx_*cuy-hy_*cux,hx_*cux+hy_*cuy));v.V.forEach(q=>dp(c,q.t,(q.x-gv.cx)*sc,-(q.y-gv.cy)*sc,q.w*sc,q.h*sc,q.x>=0?1:-1,q.t=='rlight'?(v.sun<.02&&v.ec>0?1:0):(q.fl||0),q.on,q.dir));strutLines(c,v.V,gv.cx,gv.cy,sc);c.restore();c.fillStyle='#cde';c.font='12px sans-serif';c.fillText(v.name,p[0]+10,p[1]-10)});
  if(di&&di.best){const a=Q(di.best.pa[0],di.best.pa[1]),b=Q(di.best.pb[0],di.best.pb[1]);c.strokeStyle='#fd4';c.lineWidth=2;c.setLineDash([5,4]);c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.stroke();c.setLineDash([]);[a,b].forEach(p=>{c.beginPath();c.arc(p[0],p[1],8,0,7);c.stroke()})}
  if(rcsMode){c.strokeStyle='#4f8';c.lineWidth=1;c.beginPath();c.moveTo(W/2-14,Hh/2);c.lineTo(W/2+14,Hh/2);c.moveTo(W/2,Hh/2-14);c.lineTo(W/2,Hh/2+14);c.stroke()}
  const hx=Math.cos(s.th),hy=Math.sin(s.th),p0=Q(s.x,s.y);
  if(s.dead){s.bt+=.02;c.strokeStyle='#fb4';c.lineWidth=3;for(let k=0;k<16;k++){const a=k*.39,d=s.bt*60*(1+k%3*.4);c.beginPath();c.moveTo(p0[0]+Math.cos(a)*d*.4,p0[1]+Math.sin(a)*d*.4);c.lineTo(p0[0]+Math.cos(a)*d,p0[1]+Math.sin(a)*d);c.stroke()}}
  else{const Ht=Math.max(...V.map(p=>p.y+p.h/2))-Math.min(...V.map(p=>p.y-p.h/2)),k=Math.max(sc,26/Ht);c.save();c.translate(p0[0],p0[1]);c.rotate(Math.atan2(hx*cuy-hy*cux,hx*cux+hy*cuy));
-  V.forEach(p=>dp(c,p.t,(p.x-g.cx)*k,-(p.y-g.cy)*k,p.w*k,p.h*k,p.x>=0?1:-1,p.fl||0,p.on,p.dir));c.restore()}
+  V.forEach(p=>dp(c,p.t,(p.x-g.cx)*k,-(p.y-g.cy)*k,p.w*k,p.h*k,p.x>=0?1:-1,p.t=='rlight'?(s.sun<.02&&s.ec>0?1:0):(p.fl||0),p.on,p.dir));strutLines(c,V,g.cx,g.cy,k);c.restore()}
  const v=Math.hypot(pp.vx,pp.vy),vr=pp.vx*U[0]+pp.vy*U[1],o=orb(pp),tk=V.reduce((a,p)=>a+(p.fuel||0),0),nx=nextSt();
  c.font='15px ui-monospace,Menlo,monospace';c.fillStyle='#fff';c.shadowColor='#000';c.shadowBlur=4;
  const ln=[`主天体 ${Bd.n}`,`高度   ${fm(al0)}`,`速度   ${v.toFixed(0)} m/s`,`昇降   ${vr.toFixed(0)} m/s`,`遠点   ${isFinite(o.ra)?fm(o.ra-Bd.R):'∞'}`,`近点   ${fm(o.rp-Bd.R)}`,`周期   ${o.T?ft(o.T):'-'}`,`質量   ${(g.m/1e3).toFixed(1)} t  燃料 ${(tk/1e3).toFixed(1)} t`,`次の段 ${nx||'なし'}   T+ ${ft(s.t-s.t0)} ×${warp}`];
- if(s.cs&&s.cs.length)ln.push('乗員 '+s.cs.map(c=>(c.dead?'🪦':'')+c.n).join(' '));if(s.hd>.02)ln.push(`🔥 加熱 ${(s.hd*100).toFixed(0)}%`);if(al0<2e4&&Bd.tr){const gh=gnd(bI,Math.atan2(pp.y,pp.x)+Bd.w*s.t);ln.push(`標高 ${gh.toFixed(0)} m  対地 ${fm(al0-gh)}`)}if(PR&&PR.enc)ln.push(`🪐 ${B[PR.enc[0]].n}のSOIまで ${ft(PR.enc[1])}`);else if(PR&&PR.mn<1e99&&PR.mn<B[PR.mnj].soi*3)ln.push(`${B[PR.mnj].n}最接近 ${fm(PR.mn-B[PR.mnj].R)}`);
+ if(s.ecCap)ln.push(`電力 ${s.ec.toFixed(0)}/${s.ecCap.toFixed(0)} ${s.sun>.01?'☀'+s.sun.toFixed(2):'🌑'}${s.ecOk===false?' ⚠電力切れ':''}`);if((s.ore||0)>1||s.drill)ln.push(`鉱石 ${(s.ore||0).toFixed(0)} kg ${s.drill?'⛏採掘中':''}`);if(s.cs&&s.cs.length)ln.push('乗員 '+s.cs.map(c=>(c.dead?'🪦':'')+c.n).join(' '));if(s.hd>.02)ln.push(`🔥 加熱 ${(s.hd*100).toFixed(0)}%`);if(al0<2e4&&Bd.tr){const gh=gnd(bI,Math.atan2(pp.y,pp.x)+Bd.w*s.t);ln.push(`標高 ${gh.toFixed(0)} m  対地 ${fm(al0-gh)}`)}if(PR&&PR.enc)ln.push(`🪐 ${B[PR.enc[0]].n}のSOIまで ${ft(PR.enc[1])}`);else if(PR&&PR.mn<1e99&&PR.mn<B[PR.mnj].soi*3)ln.push(`${B[PR.mnj].n}最接近 ${fm(PR.mn-B[PR.mnj].R)}`);
  if(rcsMode){if(s.auto)ln.push('自動制御: '+(s.auto==1?'速度同期':'ランデブー接近 残り '+fm(s.adist||0)));let mp0=0,mp1=0;s.V.forEach(p=>{mp0+=p.mp||0;mp1+=P[p.t].mp||0});ln.push(`RCS ${s.rcs?'ON':'OFF'}  RCS燃料 ${mp1?(mp0/mp1*100).toFixed(0):0}%`);
   if(di){ln.push(`ターゲット ${tg.name}`,`距離 ${di.range.toFixed(1)} m  相対速度 ${di.rel.toFixed(2)} m/s`);if(di.best)ln.push(`ポート距離 ${di.best.d.toFixed(1)} m  接近 ${di.closing.toFixed(2)} m/s  角度ずれ ${di.align.toFixed(0)}°`)}else ln.push('ターゲット未選択(上のリストから選択)')}
  ln.forEach((t,k)=>c.fillText(t,14,30+k*20));
@@ -475,14 +588,19 @@ let last=0;function loop(t){const dt=Math.min(.05,(t-last)/1e3||.016);last=t;
 loadWorld();if(VS.length){vmUI();$('vm').style.display='flex'}setInterval(()=>{if(VS.length&&!menu)saveWorld()},4000);
 requestAnimationFrame(loop);
 // ---------- 入力
-function sync(){document.querySelectorAll('[data-w]').forEach(b=>b.classList.toggle('on',+b.dataset.w==warp));document.querySelectorAll('[data-m]').forEach(b=>b.classList.toggle('on',S&&+b.dataset.m==S.mode));$('bm').classList.toggle('on',!!map);$('thf').style.height=(S?S.thr*100:0)+'%';$('thl').textContent=Math.round((S?S.thr:0)*100)+'%'}
+function sync(){document.body.classList.toggle('evamode',!!(S&&S.eva&&!menu));document.querySelectorAll('[data-w]').forEach(b=>b.classList.toggle('on',+b.dataset.w==warp));document.querySelectorAll('[data-m]').forEach(b=>b.classList.toggle('on',S&&+b.dataset.m==S.mode));$('bm').classList.toggle('on',!!map);$('thf').style.height=(S?S.thr*100:0)+'%';$('thl').textContent=Math.round((S?S.thr:0)*100)+'%'}
 const on=(id,fn)=>$(id).addEventListener('pointerdown',e=>{e.preventDefault();fn()}),setT=v=>{if(S&&!S.dead&&!menu){S.thr=cl(v,0,1);sync()}};
 {const nud=(dx,dy)=>{edX+=dx;edY+=dy;$('edpan').value=cl(edX,-40,40)};on('ezi',()=>zm(1.3));on('ezo',()=>zm(1/1.3));on('eh',()=>{edZ=1;edX=0;edY=0;$('edpan').value=0});on('el',()=>nud(-2/edZ,0));on('er',()=>nud(2/edZ,0));on('eu',()=>nud(0,2/edZ));on('ed2',()=>nud(0,-2/edZ));$('edpan').addEventListener('input',e=>{edX=+e.target.value})}
+on('rfb',refitStart);on('rfok',refitApply);on('rfx',refitCancel);
+on('drb',()=>{if(!ACT)return;ACT.drill=!ACT.drill;toast(ACT.drill?'⛏ 採掘ON (着陸中/採掘機+鉱石タンク+電力が必要)':'⛏ 採掘OFF',2000)});
+on('armb',()=>{if(!ACT)return;if(ACT.V.some(p=>p.dk&&P[p.t].arm))undock(true);else grab()});
+on('evb0',evUI);on('bs1',()=>baseSvc(1));on('bs2',()=>baseSvc(2));on('evbd',boardEva);on('evvm',()=>{vmUI();$('vm').style.display='flex'});on('evzi',()=>zm(1.4));on('evzo',()=>zm(1/1.4));on('evmap',()=>{map=!map;mp=[0,0];mf=-1;sync()});
+$('evmi').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.a=='close'){$('evm').style.display='none';return}if(b.dataset.a=='eva'){$('evm').style.display='none';doEva(+b.dataset.id)}});
 on('vmb',()=>{vmUI();$('vm').style.display='flex'});
 $('vmi').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.a,i=+b.dataset.i;
  if(a=='close'){$('vm').style.display='none';vmArm=-1;return}
  if(a=='go'){$('vm').style.display='none';switchTo(VS[i]);return}
- if(a=='new'){$('vm').style.display='none';menu=1;document.body.classList.add('ed');document.body.classList.remove('rcsmode');rcsMode=0;upd();return}
+ if(a=='new'){$('vm').style.display='none';menu=1;document.body.classList.add('ed');document.body.classList.remove('rcsmode','evamode');rcsMode=0;upd();return}
  if(a=='del'){if(vmArm===i){const v=VS[i];VS=VS.filter(z=>z!==v);if(v===ACT){ACT=S=VS[0]||null;if(!S){menu=1;document.body.classList.add('ed')}}vmArm=-1;saveWorld()}else vmArm=i;vmUI()}});
 $('vmi').addEventListener('change',e=>{const i=+e.target.dataset.i;if(VS[i]){VS[i].name=e.target.value||VS[i].name;saveWorld()}});
 on('rcb',()=>{if(!S||S.dead)return;rcsMode=1;S.rcs=1;warp=1;map=0;document.body.classList.add('rcsmode');fillTgt();$('rct').innerHTML='RCS<br>ON';sync()});
@@ -491,7 +609,7 @@ on('rct',()=>{S.rcs=!S.rcs;$('rct').innerHTML='RCS<br>'+(S.rcs?'ON':'OFF')});
 on('und',undock);on('sy1',()=>{if(!tgt){toast('上のリストでターゲットを選んでください',1800);return}ACT.auto=ACT.auto==1?0:1;toast(ACT.auto?'速度同期: ON (RCS燃料を使用)':'速度同期: OFF',1500)});on('sy2',()=>{if(!tgt){toast('上のリストでターゲットを選んでください',1800);return}ACT.auto=ACT.auto==3?0:3;toast(ACT.auto?'ランデブー自動接近: ON (メイン燃料を使用/ワープ可)':'ランデブー: OFF',2200)});on('fx0',()=>xfer(0));on('fx1',()=>xfer(1));on('fx2',()=>xfer(2));
 $('tgtsel').addEventListener('change',e=>{tgt=VS[+e.target.value]||null});
 document.querySelectorAll('[data-r]').forEach(b=>{const k=b.dataset.r;b.addEventListener('pointerdown',e=>{e.preventDefault();key[k]=1;b.setPointerCapture(e.pointerId)});['pointerup','pointercancel'].forEach(t=>b.addEventListener(t,()=>key[k]=0))});
-on('mx',()=>setT(1));on('mn',()=>setT(0));on('stg',stage);on('rs',()=>{menu=1;rcsMode=0;document.body.classList.add('ed');document.body.classList.remove('rcsmode');$('ts').style.display='none';upd()});
+on('mx',()=>setT(1));on('mn',()=>setT(0));on('stg',stage);on('rs',()=>{menu=1;rcsMode=0;document.body.classList.add('ed');document.body.classList.remove('rcsmode','evamode');$('ts').style.display='none';upd()});
 on('bm',()=>{map=!map;mp=[0,0];mf=-1;sync()});on('fc',()=>{if(!map){map=1;sync()}mf=mf+1>=B.length?-1:mf+1;mp=[0,0];toast('マップ中心: '+(mf<0?'現在の主天体':B[mf].n)+'<br>(ドラッグで移動/ピンチで拡大縮小)',1800)});const zm=f=>{if(menu){edZ=cl(edZ*f,.25,6);return}zf[map?1:0]=cl(zf[map?1:0]*f,2e-5,map?300:15)};on('zi',()=>zm(1.4));on('zo',()=>zm(1/1.4));
 document.querySelectorAll('[data-w]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();const w=+b.dataset.w;if(w>10&&S){const q=pri(S.x,S.y,S.vx,S.vy,S.t),Bq=B[q.i];if(S.thr>0||(!S.land&&Math.hypot(q.x,q.y)-Bq.R<(Bq.atm?Bq.atm.top:3e3))){toast('大気圏外/十分な高度でスロットル0の時のみ',2000);return}}warp=w;sync()}));
 document.querySelectorAll('[data-m]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();if(S){S.mode=+b.dataset.m;S.hold=S.th;sync()}}));
@@ -503,8 +621,8 @@ cv.addEventListener('pointerdown',e=>{if(menu){epts.set(e.pointerId,[e.clientX,e
 cv.addEventListener('pointermove',e=>{if(menu){if(epts.has(e.pointerId))epts.set(e.pointerId,[e.clientX,e.clientY]);
   if(epts.size>=2){const a=[...epts.values()],d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]),m=[(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2],v=ev();if(epd>0&&d>0)edZ=cl(edZ*d/epd,.25,6);edX-=(m[0]-emid[0])/v.es;edY+=(m[1]-emid[1])/v.es;epd=d;emid=m;$('edpan').value=cl(edX,-40,40);return}
   if(dn&&tool=='pan'){const v=ev();edX-=(e.clientX-lastP[0])/v.es;edY+=(e.clientY-lastP[1])/v.es;lastP=[e.clientX,e.clientY];$('edpan').value=cl(edX,-40,40);return}
-  if(dn&&P[tool])edPtr(e);return}if(!pts.has(e.pointerId))return;const o0=pts.get(e.pointerId);if(pts.size==1&&map){mp[0]-=(e.clientX-o0[0])/lastSc;mp[1]+=(e.clientY-o0[1])/lastSc}pts.set(e.pointerId,[e.clientX,e.clientY]);if(pts.size==2){const d=pdist();if(pd&&d)zm(d/pd);pd=d}});
-['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,e=>{if(menu){epts.delete(e.pointerId);if(dn){dn=0;if(t=='pointerup'&&P[tool])commit();ghost=null}}pts.delete(e.pointerId);pd=0}));
+  if(dn&&(P[tool]||tool=='strut'))edPtr(e);return}if(!pts.has(e.pointerId))return;const o0=pts.get(e.pointerId);if(pts.size==1&&map){mp[0]-=(e.clientX-o0[0])/lastSc;mp[1]+=(e.clientY-o0[1])/lastSc}pts.set(e.pointerId,[e.clientX,e.clientY]);if(pts.size==2){const d=pdist();if(pd&&d)zm(d/pd);pd=d}});
+['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,e=>{if(menu){epts.delete(e.pointerId);if(dn){dn=0;if(t=='pointerup'&&P[tool])commit();if(t=='pointerup'&&tool=='strut')endStrut();strutFrom=null;ghost=null}}pts.delete(e.pointerId);pd=0}));
 cv.addEventListener('wheel',e=>{e.preventDefault();zm(Math.exp(-e.deltaY*.001))},{passive:false});
 addEventListener('keydown',e=>{const k=e.key;if(k=='i')key.ru=1;if(k=='k')key.rd=1;if(k=='j')key.rl=1;if(k=='l')key.rr=1;if(k=='r'&&S)S.rcs=!S.rcs;if(k=='a'||k=='ArrowLeft')key.L=1;if(k=='d'||k=='ArrowRight')key.R=1;if(k==' ')stage();if(S){if(k=='w')setT(S.thr+.1);if(k=='s')setT(S.thr-.1);if(k=='z')setT(1);if(k=='x')setT(0)}});
 addEventListener('keyup',e=>{const k=e.key;if(k=='i')key.ru=0;if(k=='k')key.rd=0;if(k=='j')key.rl=0;if(k=='l')key.rr=0;if(k=='a'||k=='ArrowLeft')key.L=0;if(k=='d'||k=='ArrowRight')key.R=0});
